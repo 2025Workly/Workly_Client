@@ -1,5 +1,6 @@
+// pages/index.js
 export default function Home() {
   return (
-    <div>Test HomePage </div>
+    <div>Test HomePage Test</div>
   );
 }
