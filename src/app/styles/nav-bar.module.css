@@ -1,0 +1,30 @@
+.allContainer {
+    padding: 0 121px;
+}
+
+.navBar {
+    background-color: #2A2A2A;
+    filter: drop-shadow(0px 4px 73.8px rgba(0, 0, 0, 0.07));
+    padding: 28px 100px 28px 90px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+}
+
+.logoImg {
+    width: 124px;
+    height: 37px;
+}
+
+.ul {
+    display: flex;
+    gap: 60px;
+}
+
+.ul>li {
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 25px;
+    font-weight: 600;
+}
