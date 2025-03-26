@@ -3,13 +3,14 @@
 }
 
 .navBar {
+    width: 100%;
     background-color: #2A2A2A;
     filter: drop-shadow(0px 4px 73.8px rgba(0, 0, 0, 0.07));
     padding: 28px 100px 28px 90px;
     display: flex;
     justify-content: space-between;
-    border-bottom-left-radius: 70px;
-    border-bottom-right-radius: 70px;
+    border-bottom-left-radius: 67px;
+    border-bottom-right-radius: 67px;
 }
 
 .logoImg {
