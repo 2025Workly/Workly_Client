@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
-import "../styles/globals.css"
-
+import "../app/styles/globals.css"
+import Nav from "./components/common/nav-bar";
+export const metadata: Metadata = {
+  title: {
+    template: "Workly",
+    default: "Workly"
+  },
+  description: "Website for young professionals",
+};
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -9,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Nav />
         {children}
       </body>
     </html>
