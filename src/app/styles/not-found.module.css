@@ -1,0 +1,19 @@
+.messageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20vh;
+}
+
+.message {
+    color: #000;
+    font-size: 40px;
+    font-weight: 600;
+    margin: 37px 0 8px 0;
+}
+
+.message2 {
+    color: #000;
+    font-size: 30px;
+}
