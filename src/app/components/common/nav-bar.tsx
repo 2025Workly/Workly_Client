@@ -17,13 +17,13 @@ export default function Nav() {
                 </Link>
                 <ul className={styles.ul}>
                     <li>
-                        <Link href={"/board"}>게시판</Link >
+                        <Link href={"/notice-board"}>게시판</Link >
                     </li>
                     <li>
-                        <Link href={"/job"}>직무</Link >
+                        <Link href={"/job-tips-words"}>직무</Link >
                     </li>
                     <li>
-                        <Link href={"/board"}>마이페이지</Link >
+                        <Link href={"/mypage"}>마이페이지</Link >
                     </li>
 
                 </ul>
