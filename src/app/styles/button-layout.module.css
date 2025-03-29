@@ -1,0 +1,16 @@
+.Button {
+    border: none;
+    width: 100%;
+    padding: 23px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    background: var(--main, #3B44E6);
+}
+
+.title {
+    color: #FFF;
+    font-size: 25px;
+    font-weight: 500;
+}
