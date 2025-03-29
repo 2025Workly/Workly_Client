@@ -1,0 +1,19 @@
+.category {
+    display: flex;
+    padding: 12px 28px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 100px;
+    background: #ECECEC;
+    color: #535353;
+    font-size: 18px;
+    font-weight: 500;
+    width: fit-content;
+}
+
+.activeCategory {
+    background: var(--main, #3B44E6);
+    color: #FFF;
+}
