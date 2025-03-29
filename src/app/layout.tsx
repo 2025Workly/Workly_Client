@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "../app/styles/globals.css"
-import Nav from "./components/common/nav-bar";
+import Nav from "./components/nav-bar";
 export const metadata: Metadata = {
   title: {
     template: "Workly",
