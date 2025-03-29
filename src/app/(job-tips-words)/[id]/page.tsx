@@ -1,5 +1,6 @@
 "use client"
 import Category from "../../components/category-layout";
+import SearchBar from "@/app/components/search-bar-layout";
 import styles from "../../../app/(job-tips-words)/job-layout.module.css"
 import { useState } from "react";
 export default function Job() {
@@ -10,15 +11,18 @@ export default function Job() {
     }
 
     return (
-        <div className={styles.categoryContainer}>
-            {categories.map((category) => (
-                <Category
-                    key={category}
-                    type={category}
-                    onClick={() => handleCategoryClick(category)}
-                    isActive={category === activeCategory}
-                />
-            ))}
+        <div>
+            <SearchBar title={"단어"} />
+            <div className={styles.categoryContainer}>
+                {categories.map((category) => (
+                    <Category
+                        key={category}
+                        type={category}
+                        onClick={() => handleCategoryClick(category)}
+                        isActive={category === activeCategory}
+                    />
+                ))}
+            </div>
         </div>
     )
 }
