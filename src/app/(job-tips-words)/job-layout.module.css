@@ -1,4 +1,17 @@
+.allContainer {}
+
 .categoryContainer {
     display: flex;
+    /*justify-content: space-between;*/
+    align-items: center;
+}
+
+.categoryList {
+    display: flex;
     gap: 11px;
+}
+
+.addWordsBtn {
+    font-size: 18px;
+    font-weight: 500;
 }
