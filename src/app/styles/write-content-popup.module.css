@@ -1,0 +1,49 @@
+.allContainer,
+.selectCategoryContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formContainer {
+    padding: 5.46vh 4.69vw 6.11vh 4.69vw;
+    width: 100%;
+    max-width: 1070px;
+    border-radius: 22px;
+}
+
+.inputContainer {
+    border-bottom: 1.4px solid #E8E8E8;
+}
+
+.inputStyle,
+.textareaStyle {
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.inputStyle {
+    font-size: 35px;
+    font-weight: 600;
+    padding-bottom: 30px;
+}
+
+.textareaStyle {
+    font-size: 25px;
+    font-weight: 500;
+    margin-top: 43px;
+    resize: none;
+    height: 50vh;
+}
+
+.selectMessage {
+    margin: 6.67vh 0 4.72vh 0;
+    font-size: 30px;
+}
+
+.categories {
+    display: flex;
+    gap: 11px;
+    margin-bottom: 8.24vh;
+}

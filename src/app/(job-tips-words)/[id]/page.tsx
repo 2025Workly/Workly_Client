@@ -4,6 +4,7 @@ import SearchBar from "@/app/components/search-bar-layout";
 import Button from "@/app/components/button-layout";
 import styles from "../../../app/(job-tips-words)/job-layout.module.css"
 import { useState } from "react";
+import Write from "@/app/components/wirte-content-popup";
 export default function Job() {
     const [activeCategory, setActiveCategory] = useState<string>("전체")
     const categories = ["전체", "개발", "디자인"];
@@ -13,6 +14,7 @@ export default function Job() {
 
     return (
         <div className={styles.allContainer}>
+            <Write mainPlaceholder="단어를" buttonTitle="단어 게시하기" contentPlaceholder="단어의 뜻을" />
             <SearchBar title={"단어"} />
             <div className={styles.categoryContainer}>
                 <div className={styles.categoryList}>
