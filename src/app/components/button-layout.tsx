@@ -1,13 +1,11 @@
 import styles from "../styles/button-layout.module.css"
 interface ButtonProps {
     title: string,
-    onClick: () => void,
-    paddingValue: string;
+    onClick: () => void;
 }
-
-export default function Button({ title, onClick, paddingValue }: ButtonProps) {
+export default function Button({ title, onClick }: ButtonProps) {
     return (
-        <div style={{ padding: paddingValue }}>
+        <div>
             <button className={styles.Button}
                 onClick={onClick}><span className={styles.title}>{title}</span></button>
         </div>
