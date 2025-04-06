@@ -1,16 +1,15 @@
 .allContainer {
-    padding: 0 121px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .navBar {
     width: 100%;
-    background-color: #2A2A2A;
-    filter: drop-shadow(0px 4px 73.8px rgba(0, 0, 0, 0.07));
-    padding: 28px 100px 28px 90px;
+
+    padding: 38px 425px;
     display: flex;
     justify-content: space-between;
-    border-bottom-left-radius: 67px;
-    border-bottom-right-radius: 67px;
 }
 
 .logoImg {
@@ -24,8 +23,13 @@
 }
 
 .ul>li {
-    color: #FFF;
+    color: #000;
     font-family: Pretendard;
-    font-size: 25px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.ul>li a:hover,
+.active a {
+    color: #3B44E6;
 }
