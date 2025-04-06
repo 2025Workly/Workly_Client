@@ -15,3 +15,16 @@
     font-size: 25px;
     font-weight: 500;
 }
+
+.GotoBtnContainer {
+    cursor: pointer;
+    width: 162px;
+    height: 51px;
+    display: flex;
+    padding: 14px 48px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 13px;
+    background: var(--main, #3B44E6);
+}
