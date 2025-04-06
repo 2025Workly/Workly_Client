@@ -1,0 +1,43 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 246px 425px 51px 425px;
+    background: #F7F7F7;
+}
+
+.LogoImg {
+    width: 115px;
+    height: 40px;
+}
+
+.mainFooter {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.producer {
+    display: flex;
+    gap: 20px;
+    margin-left: 51px;
+}
+
+.producer span:first-child {
+    color: #727272;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.ul {
+    display: flex;
+    gap: 44px;
+}
+
+.ul>li a,
+.member {
+    color: #6F6F6F;
+    font-size: 15px;
+    font-weight: 400;
+}
