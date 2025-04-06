@@ -1,0 +1,12 @@
+.card {
+    width: 100%;
+    display: flex;
+    /*임시*/
+    gap: 30px;
+    padding: 197px 425px 142px 425px;
+}
+
+.card1,
+.card3 {
+    background-color: #f9f9f9;
+}

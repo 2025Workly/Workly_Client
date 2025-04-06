@@ -1,0 +1,19 @@
+.messageContainer {
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.title {
+    color: #000;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.description {
+    color: #424242;
+    font-size: 28px;
+    font-weight: 500;
+    white-space: pre-line;
+    margin: 14px 0 33px 0;
+}
