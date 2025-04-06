@@ -1,10 +1,10 @@
 "use client"
-import Category from "../../components/category-layout";
-import SearchBar from "@/app/components/search-bar-layout";
-import Button from "@/app/components/button-layout";
+import Category from "../../components/common/category-layout";
+import SearchBar from "@/app/components/WordTip/search-bar-layout";
+import Button from "@/app/components/common/button-layout";
 import styles from "../../../app/(job-tips-words)/job-layout.module.css"
 import { useState } from "react";
-import Write from "@/app/components/wirte-content-popup";
+import Write from "@/app/components/WordTip/wirte-content-popup";
 export default function Job() {
     const [activeCategory, setActiveCategory] = useState<string>("전체")
     const categories = ["전체", "개발", "디자인"];
