@@ -3,11 +3,12 @@ import Content from "../components/Home/content-layout";
 import Image from "next/image";
 import styles from "../styles/Home/home-page.module.css"
 import HomeLogo from "../../../public/images/testLogo.png"
+import BannerSlicer from "../components/Home/banner-layout";
 export default function Home() {
   return (
     <div className={styles.allContainer}>
-
-      <div className={`${styles.card} ${styles.card1}`}>
+      <BannerSlicer isMain={true} />
+      <div className={`${styles.card} ${styles.card1}`} style={{ marginTop: "60px" }}>
         <Content
           title="야근 및 일정관리"
           description={`업무를 편리하게 체크리스트로 관리\n
