@@ -28,3 +28,8 @@
     border-radius: 13px;
     background: var(--main, #3B44E6);
 }
+
+.GotoBtnContainer:hover {
+    background-color: #1B23B4;
+    transition: all .5s;
+}
