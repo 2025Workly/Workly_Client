@@ -3,7 +3,8 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 246px 425px 51px 425px;
+    height: 12.5vh;
+    padding: 44px 0 51px 0;
     background: #F7F7F7;
 }
 
@@ -14,14 +15,14 @@
 
 .mainFooter {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     width: 100%;
 }
 
 .producer {
     display: flex;
     gap: 20px;
-    margin-left: 51px;
+    margin: 0 354px 0 51px;
 }
 
 .producer span:first-child {

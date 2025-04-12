@@ -7,14 +7,15 @@
 .navBar {
     width: 100%;
 
-    padding: 38px 425px;
+    padding: 38px 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .logoImg {
     width: 124px;
     height: 37px;
+    margin-right: 486px;
 }
 
 .ul {
