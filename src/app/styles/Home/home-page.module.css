@@ -3,10 +3,57 @@
     display: flex;
     /*임시*/
     gap: 30px;
-    padding: 197px 425px 142px 425px;
+    /* padding: 197px 425px 142px 424px; */
 }
 
-.card1,
+.card {
+    display: flex;
+    justify-content: center;
+}
+
+.card1 {
+    padding: 244px 0 255px 0;
+    background: linear-gradient(90deg, #1A1E8E 0%, #1A1E6C 100%);
+}
+
+.card2 {
+    display: flex;
+    gap: 222px;
+    padding: 253px 0 279px 0;
+    background: #F7F7F7;
+}
+
 .card3 {
-    background-color: #f9f9f9;
+    display: flex;
+    gap: 118px;
+    padding: 269px 0;
+}
+
+.card4 {
+    display: flex;
+    gap: 186px;
+    padding: 164px 0;
+    background: linear-gradient(90deg, #3B44E6 0.01%, #396AE0 100%);
+}
+
+.icon1 {
+    width: 622.704px;
+    height: 429.887px;
+}
+
+.icon2 {
+    width: 430px;
+    height: 442px;
+}
+
+.icon3 {
+    width: 570.023px;
+    height: 302.397px;
+    flex-shrink: 0;
+}
+
+.icon4 {
+    width: 436.945px;
+    height: 574.068px;
+    flex-shrink: 0;
 }
