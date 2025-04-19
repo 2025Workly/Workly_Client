@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/router"
 import { usePathname } from "next/navigation";
-import Logo from "../../../../public/images/testLogo.png"
+import Logo from "../../../../public/images/logo.png"
 import styles from "../../styles/nav-bar.module.css"
 import path from "path";
 

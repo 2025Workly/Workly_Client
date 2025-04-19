@@ -1,7 +1,7 @@
 import styles from "../../styles/footer.module.css"
 import Link from "next/link"
 import Image from "next/image"
-import Logo from "../../../../public/images/testLogo.png"
+import Logo from "../../../../public/images/logo.png"
 
 interface FooterProps {
     isHome: boolean;
