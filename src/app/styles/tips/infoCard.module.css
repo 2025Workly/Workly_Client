@@ -1,0 +1,22 @@
+.infoCardContainer {
+    width: 100%;
+    border-radius: 22px;
+    background: #FFF;
+    box-shadow: 0px 4px 50.6px 0px rgba(0, 0, 0, 0.02);
+}
+
+.title {
+    display: flex;
+    margin-bottom: 13px;
+    color: #000;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 40px;
+}
+
+.detail {
+    color: #424242;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+}
