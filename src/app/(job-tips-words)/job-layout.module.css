@@ -1,4 +1,6 @@
-.allContainer {}
+.allContainer {
+    background: #F7F7F7;
+}
 
 .categoryContainer {
     display: flex;

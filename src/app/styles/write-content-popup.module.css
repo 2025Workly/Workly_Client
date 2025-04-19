@@ -5,11 +5,18 @@
     align-items: center;
 }
 
+.allContainer {
+    background-color: #F7F7F7;
+    z-index: -1;
+}
+
 .formContainer {
+    background-color: #FFF;
     padding: 5.46vh 4.69vw 6.11vh 4.69vw;
     width: 100%;
     max-width: 1070px;
     border-radius: 22px;
+    z-index: 100;
 }
 
 .inputContainer {
