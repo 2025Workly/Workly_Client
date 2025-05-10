@@ -1,0 +1,22 @@
+.headerContainer {
+    display: flex;
+    gap: 13px;
+}
+
+.active a {
+    color: #000;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.notActive a {
+    color: #D0D0D0;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.divisionLine {
+    width: 2px;
+    height: 42px;
+    background: #D0D0D0;
+}
