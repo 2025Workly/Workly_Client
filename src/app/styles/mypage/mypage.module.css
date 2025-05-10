@@ -1,0 +1,24 @@
+.allContainer {
+    background: #F7F7F7;
+}
+
+.profileContainer,
+.calculateContainer {
+    width: 976px;
+    margin: auto;
+}
+
+.contentName {
+    color: #000;
+    font-size: 35px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.mypageTitle {
+    margin: 49px 0 39px 0;
+}
+
+.calTitle {
+    margin: 110px 0 43px 0;
+}
