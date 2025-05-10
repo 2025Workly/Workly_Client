@@ -7,6 +7,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Write from "@/app/components/WordTip/wirte-content-popup";
 import InfoCard from "@/app/components/WordTip/infoCard-layout";
+import Header from "@/app/components/WordTip/header-layout";
 
 export default function Job() {
     const [activeCategory, setActiveCategory] = useState<string>("전체")
@@ -17,6 +18,7 @@ export default function Job() {
 
     return (
         <div className={styles.allContainer}>
+            <Header />
             <SearchBar title={"단어"} />
             <div className={styles.categoryContainer}>
                 <div className={styles.categoryList}>
