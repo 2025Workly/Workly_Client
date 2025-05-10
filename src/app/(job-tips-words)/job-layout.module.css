@@ -2,9 +2,14 @@
     background: #F7F7F7;
 }
 
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .categoryContainer {
     display: flex;
-    /*justify-content: space-between;*/
     align-items: center;
 }
 
@@ -16,4 +21,36 @@
 .addWordsBtn {
     font-size: 18px;
     font-weight: 500;
+    cursor: pointer;
+}
+
+.infoCardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 1070px;
+    /* margin: 49px auto 82px auto; */
+}
+
+.TipInfoCardContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 1070px;
+}
+
+.searchHeaderContainer,
+.categoryContainer {
+    width: 1070px;
+    padding-right: 10px;
+}
+
+.categoryContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 90px 0 49px 0;
+}
+
+.searchHeaderContainer {
+    display: flex;
+    align-items: center;
+    gap: 224px;
 }

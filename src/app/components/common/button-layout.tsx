@@ -3,10 +3,11 @@ interface ButtonProps {
     title: string,
     onClick: () => void;
 }
-export default function Button({ title, onClick }: ButtonProps) {
+export default function Button({ title, onClick, }: ButtonProps) {
     return (
         <div>
             <button className={styles.Button}
+                type="submit"
                 onClick={onClick}><span className={styles.title}>{title}</span></button>
         </div>
     )

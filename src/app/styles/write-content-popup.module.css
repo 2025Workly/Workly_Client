@@ -6,15 +6,20 @@
 }
 
 .allContainer {
-    background-color: #F7F7F7;
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    background: rgba(0, 0, 0, 0.27);
+    width: 100%;
+    height: 100%;
     z-index: -1;
+    padding: 139px 0;
 }
 
 .formContainer {
     background-color: #FFF;
-    padding: 5.46vh 4.69vw 6.11vh 4.69vw;
-    width: 100%;
-    max-width: 1070px;
+    padding: 46px 91px 66px 91px;
+    width: 1070px;
     border-radius: 22px;
     z-index: 100;
 }
@@ -33,24 +38,35 @@
 .inputStyle {
     font-size: 35px;
     font-weight: 600;
-    padding-bottom: 30px;
+    padding-bottom: 24px;
 }
 
 .textareaStyle {
     font-size: 25px;
     font-weight: 500;
-    margin-top: 43px;
+    margin-top: 34px;
     resize: none;
-    height: 50vh;
+    height: 175px;
 }
 
 .selectMessage {
-    margin: 6.67vh 0 4.72vh 0;
+    margin: 116px 0 51px 0;
     font-size: 30px;
 }
 
 .categories {
     display: flex;
     gap: 11px;
-    margin-bottom: 8.24vh;
+    margin-bottom: 81px;
+}
+
+.closeBtnImg {
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+}
+
+.contentContainer {
+    display: flex;
+    gap: 40px;
 }

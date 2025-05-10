@@ -42,7 +42,7 @@ export default function Job() {
 
     return (
         <div className={styles.allContainer}>
-            <div style={{ zIndex: "-100" }}>
+            <div className={styles.contentContainer}>
                 <div className={styles.searchHeaderContainer}>
                     <Header />
                     <SearchBar title={"단어"} />
@@ -79,6 +79,7 @@ export default function Job() {
                                 width="344px"
                                 padding="39px 52px"
                                 gap="98px"
+                                className="span"
                             />
                         ))
                     ) : (<p>해당 카테고리에 해당하는 직무 팁이 없습니다.</p>)}

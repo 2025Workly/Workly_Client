@@ -1,12 +1,14 @@
 .headerContainer {
     display: flex;
     gap: 13px;
+    white-space: nowrap;
 }
 
 .active a {
     color: #000;
     font-size: 35px;
     font-weight: 600;
+
 }
 
 .notActive a {

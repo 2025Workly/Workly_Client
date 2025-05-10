@@ -4,13 +4,14 @@ interface InfoCardProps {
     padding: string,
     title: string,
     detail: string,
-    gap: string
+    gap: string,
+    className: string
 }
-export default function InfoCard({ width, padding, title, detail, gap }: InfoCardProps) {
+export default function InfoCard({ width, padding, title, detail, gap, className }: InfoCardProps) {
     return (
         <div className={styles.infoCardContainer} style={{ width: width, padding: padding }}>
             <div className={styles.title} style={{ gap: gap }}>
-                <span>{title}</span>
+                <span className={`${className ? styles[className] : ""}`}>{title}</span>
                 <img src="/images/book-mark.png" style={{ width: "19px", height: "25px" }} />
             </div>
             <div className={styles.detail}>{detail}</div>
