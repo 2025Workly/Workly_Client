@@ -66,6 +66,7 @@ export default function TipPage() {
                 handleCategoryClick("전체")
             }
         }, 300)
+        return () => clearTimeout(timmer)
     }, [input])
 
     return (
