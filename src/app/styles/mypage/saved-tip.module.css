@@ -1,0 +1,16 @@
+.savedPostAllContainer {
+    width: 1070px;
+    margin: auto;
+}
+
+.saveText {
+    color: #000;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.categoryContainer {
+    display: flex;
+    gap: 11px;
+    margin: 52px 0 32px 0;
+}
