@@ -16,10 +16,12 @@ export default function Job() {
     const [activeCategory, setActiveCategory] = useState<string>("전체")
     const [showWritePopup, setShowWritePopup] = useState(false)
     const [words, setWords] = useState<any[]>([]) //단어 data 저장할 상태
+    const [input, setInput] = useState("")
 
     const categories = ["전체", "개발", "디자인"];
     const token = process.env.NEXT_PUBLIC_API_TOKEN;
 
+    //카테고리별로 카드 보여주는 api 연결
     const handleCategoryClick = async (category: string) => {
         setActiveCategory(category)
 
@@ -40,12 +42,46 @@ export default function Job() {
     }, [])
 
 
+    //검색 api 연결
+    const handleSearch = async (keyword: string) => {
+        try {
+            const response = await axios.get(`http://localhost:5000/words/search?keyword=${keyword}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            })
+            setActiveCategory("검색결과")
+            const data = response.data.words
+            setWords(data)
+            console.log("검색 결과: ", data)
+        } catch (err) {
+            console.error('검색 API 오류', err)
+        }
+    }
+    // 검색어 변화 감지
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            const trimmed = input.trim()
+            if (trimmed) {
+                handleSearch(trimmed)
+            } else {// 검색어 비엇을때
+                handleCategoryClick('전체')
+            }
+        }, 300)
+
+        return () => clearTimeout(timer) //setTimeout함수 취소
+    }, [input])
+
     return (
         <div className={styles.allContainer}>
             <div className={styles.contentContainer}>
                 <div className={styles.searchHeaderContainer}>
                     <Header />
-                    <SearchBar title={"단어"} />
+                    <SearchBar
+                        title={"단어"}
+                        input={input}
+                        setInput={setInput}
+                    />
                 </div>
 
 
@@ -78,11 +114,14 @@ export default function Job() {
                                 detail={word.explanation}
                                 width="344px"
                                 padding="39px 52px"
-                                gap="98px"
                                 className="span"
                             />
                         ))
-                    ) : (<p>해당 카테고리에 해당하는 직무 팁이 없습니다.</p>)}
+                    ) : (
+                        <div className={styles.noneDataFieldContainer}>
+                            <p className={styles.noneMsg}>해당 카테고리에 해당하는 직무 팁이 없습니다.</p>
+                        </div>
+                    )}
                 </div>
 
             </div>
