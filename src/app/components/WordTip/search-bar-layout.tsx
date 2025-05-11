@@ -1,24 +1,19 @@
-import { eventNames } from "process";
+"use client"
 import styles from "../../styles/search-bar.module.css"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 interface SearchBarProps {
-    onSearch: (query: string) => void,
-    title: string
+    title: string;
+    input: string;
+    setInput: (value: string) => void;
 }
-export default function SearchBar({ onSearch, title }: SearchBarProps) {
-    const [query, setQuery] = useState<string>('');
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const newQuery = event.target.value;
-        setQuery(newQuery)
-        onSearch(newQuery)
-    }
 
+export default function SearchBar({ title, input, setInput }: SearchBarProps) {
     return (
         <div className={styles.searchBarContainer}>
             <input
                 type="text"
-                value={query}
-                onChange={handleChange}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
                 placeholder={`${title}를 검색해보세요!`}
                 className={styles.searchbarInput}>
             </input>
