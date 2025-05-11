@@ -1,7 +1,9 @@
 import styles from "../styles/mypage/mypage.module.css";
 import ProfileCard from "../components/mypage/profile-card-layout";
-
+import Calculator from "../components/mypage/salary-calculator";
+import ResultCount from "../components/mypage/result-count-layout";
 export default function Mypage() {
+
     return (
         <div className={styles.allContainer}>
             <div className={styles.profileContainer}>
@@ -17,8 +19,13 @@ export default function Mypage() {
             {/* 실수령액 계산기 */}
             <div className={styles.calculateContainer}>
                 <p className={`${styles.contentName} ${styles.calTitle}`}>실수령액 계산기</p>
+                <Calculator />
             </div>
 
+            {/* 계산 결과 */}
+            <div>
+                <ResultCount />
+            </div>
 
 
         </div>

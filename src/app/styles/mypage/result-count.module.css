@@ -1,0 +1,62 @@
+.resultContainer {
+    margin: auto;
+    width: 976px;
+    border-radius: 37px;
+    background: #FFF;
+    box-shadow: 0px 4px 33.3px 0px rgba(0, 0, 0, 0.02);
+    padding: 46px 62px 47px 62px;
+}
+
+.monthTitle {
+    color: #1C1C1C;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background: #EDEDED;
+}
+
+.line1 {
+    margin: 25px 0 50px 0;
+}
+
+.line2 {
+    margin: 51px 0 33px 0;
+}
+
+.resultMount {
+    display: flex;
+    justify-content: space-between;
+}
+
+.totalTxt {
+    color: var(--main, #3B44E6);
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.resultNumberContainer {
+    display: flex;
+    gap: 15px;
+}
+
+.resultNum {
+    color: var(--main, #3B44E6);
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.resultValue {
+    color: #424242;
+    font-size: 25px;
+}
+
+.num {
+    color: #424242;
+    text-align: right;
+    font-size: 27px;
+    font-weight: 500;
+}
