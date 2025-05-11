@@ -39,12 +39,45 @@ export default function TipPage() {
     }, [])
 
 
+    //검색
+    const [input, setInput] = useState("");
+    const handleSearch = async (keyword: string) => {
+        try {
+            const response = await axios.get(`http://localhost:5000/tips/search?keyword=${keyword}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            setActiveCategory("")
+            const searchData = response.data.tips
+            setTips(searchData)
+            console.log("검색한 데이터: ", searchData)
+        } catch (err) {
+            console.error('팁 검색 API 오류: ', err)
+        }
+    }
+
+    useEffect(() => {
+        const timmer = setTimeout(() => {
+            const trimmed = input.trim()
+            if (trimmed !== "") {
+                handleSearch(trimmed)
+            } else {
+                handleCategoryClick("전체")
+            }
+        }, 300)
+    }, [input])
+
     return (
         <div className={styles.allContainer}>
             <div className={styles.contentContainer}>
                 <div className={styles.searchHeaderContainer}>
                     <Header />
-                    <SearchBar title={"단어"} />
+                    <SearchBar
+                        title={"단어"}
+                        input={input}
+                        setInput={setInput}
+                    />
                 </div>
 
 
@@ -77,11 +110,15 @@ export default function TipPage() {
                                 detail={tip.explanation}
                                 width="527px"
                                 padding="43px 57px"
-                                gap="98px"
                                 className="titleSpan"
+                                marginRight="16px"
                             />
                         ))
-                    ) : (<p>해당 카테고리에 해당하는 직무 팁이 없습니다.</p>)}
+                    ) : (
+                        <div className={styles.noneDataFieldContainer}>
+                            <p className={styles.noneMsg}>해당 카테고리에 해당하는 직무 팁이 없습니다.</p>
+                        </div>
+                    )}
                 </div>
 
             </div>
