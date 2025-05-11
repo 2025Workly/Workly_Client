@@ -23,7 +23,7 @@ export default function TipPage() {
         setActiveCategory(category)
 
         try {
-            const response = await axios.get(`http://localhost:3000/tips/${category}`, {
+            const response = await axios.get(`http://localhost:5000/tips/${category}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

@@ -41,7 +41,7 @@ export default function TipWrite({ mainPlaceholder, contentPlaceholder, closeOnC
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3000/tips', data,
+            const response = await axios.post('http://localhost:5000/tips', data,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,

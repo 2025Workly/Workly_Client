@@ -24,7 +24,7 @@ export default function Job() {
         setActiveCategory(category)
 
         try {
-            const response = await axios.get(`http://localhost:3000/words/${category}`, {
+            const response = await axios.get(`http://localhost:5000/words/${category}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

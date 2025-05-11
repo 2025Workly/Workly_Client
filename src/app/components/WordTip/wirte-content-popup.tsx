@@ -41,7 +41,7 @@ export default function Write({ mainPlaceholder, contentPlaceholder, closeOnClic
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3000/words', data,
+            const response = await axios.post('http://localhost:5000/words', data,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
