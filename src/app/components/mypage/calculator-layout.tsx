@@ -37,7 +37,7 @@ export default function Calculator() {
         const localTax = incomeTax * 0.1;
 
         const totalTax = nationalPension + health + care + jobInsurance + incomeTax + localTax;
-        const realTakeHome = money - totalTax;
+        const realTakeHome = money - totalTax - houseRent;
 
         setResult({
             nationalPension, health, care, jobInsurance,
@@ -69,19 +69,27 @@ export default function Calculator() {
             setNumKids(numKids - 1)
         }
     }
+
+    function formatComma(value: number | string) {
+        if (value === "") return ""
+        const num = typeof value === "number" ? value : Number(value.replace(",", ""))
+        return num.toLocaleString();
+    }
+
+
     const inputField = [
-        { label: "월 실수령액", value: money, setValue: setMoney },
-        { label: "월세", value: houseRent, setValue: setHouseRent },
-        { label: "비과세액", value: taxFree, setValue: setTaxFree },
+        { label: "월 실수령액", value: formatComma(money), setValue: setMoney },
+        { label: "월세", value: formatComma(houseRent), setValue: setHouseRent },
+        { label: "비과세액", value: formatComma(taxFree), setValue: setTaxFree },
     ]
     const resultList = [
-        { label: "국민연금", value: result.nationalPension },
-        { label: "건강보험", value: result.health },
-        { label: "장기요양", value: result.care },
-        { label: "고용보험", value: result.jobInsurance },
-        { label: "소득세", value: result.incomeTax },
-        { label: "지방소득세", value: result.localTax },
-        { label: "총 공제액", value: result.totalTax },
+        { label: "국민연금", value: formatComma(result.nationalPension) },
+        { label: "건강보험", value: formatComma(result.health) },
+        { label: "장기요양", value: formatComma(result.care) },
+        { label: "고용보험", value: formatComma(result.jobInsurance) },
+        { label: "소득세", value: formatComma(result.incomeTax) },
+        { label: "지방소득세", value: formatComma(result.localTax) },
+        { label: "총 공제액", value: formatComma(result.totalTax) },
     ];
 
     const plusMinusBtnList = [
@@ -102,10 +110,15 @@ export default function Calculator() {
                         <p className={styles.label}>{field.label}</p>
                         <div style={{ display: "flex" }}>
                             <input
+
                                 className={styles.input}
                                 type="text"
                                 value={field.value}
-                                onChange={(e: any) => field.setValue(Number(e.target.value))}
+                                onChange={(e: any) => {
+                                    const row = e.target.value.replace(",", "")
+                                    const numberValue = Number(row) || 0
+                                    field.setValue(numberValue)
+                                }}
                                 required
                             />
                             <p className={styles.resultMoney}>원</p>
@@ -149,7 +162,7 @@ export default function Calculator() {
                         <ResultField
                             key={item.label}
                             value={item.label}
-                            resultWon={item.value.toFixed(0)}
+                            resultWon={item.value}
                             className={"resultMoney"}
                         />
                     ))}
@@ -158,7 +171,7 @@ export default function Calculator() {
                     <div className={styles.result}>
                         <p className={styles.monthResultMoney}>예상 실수령액(월)</p>
                         <div style={{ display: "flex" }}>
-                            <p className={styles.FinalresultWon}>{result.realTakeHome}</p>
+                            <p className={styles.FinalresultWon}>{formatComma(result.realTakeHome)}</p>
                             <p className={styles.FinalresultWon} style={{ fontSize: "26px" }}>원</p>
                         </div>
                     </div>
