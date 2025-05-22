@@ -126,13 +126,14 @@ export default function Job() {
 
             </div>
             {/* 작성 팝업 */}
-            <div style={{ zIndex: "1000" }}>
+            <div className={styles.popupContainer}>
                 {showWritePopup && (
                     <Write
                         mainPlaceholder="단어를"
                         contentPlaceholder="단어의 뜻을"
                         buttonTitle="팁 게시하기"
                         closeOnClick={() => setShowWritePopup(false)}
+
                     />
 
                 )}
