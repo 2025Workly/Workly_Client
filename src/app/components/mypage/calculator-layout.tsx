@@ -9,14 +9,14 @@ import { label, p } from "framer-motion/client"
 import PlusMinusBtn from "./plust-minus-btn"
 import Button from "../common/button-layout"
 import NextBtn from "../../../../public/images/nextbtn.png"
-
+import { useRef } from "react"
 
 export default function Calculator() {
     const [money, setMoney] = useState(0) //세전 월급
     const [houseRent, setHouseRent] = useState(0)
     const [taxFree, setTaxFree] = useState(0) //비과세
     const [numKids, setNumKids] = useState(0)
-    const [numFamily, setNumFamily] = useState(0)
+    const [numFamily, setNumFamily] = useState(1)
     const [result, setResult] = useState(
         {
             nationalPension: 0,
@@ -24,7 +24,10 @@ export default function Calculator() {
             localTax: 0, totalTax: 0, realTakeHome: 0
         }
     )
-
+    const resultRef = useRef<HTMLDivElement>(null);
+    const scrollTo = () => {
+        resultRef.current?.scrollIntoView({ behavior: "smooth" })
+    }
     const calcTax = () => {
         const nationalPension = money * 0.045;
         const health = money * 0.035;
@@ -40,13 +43,14 @@ export default function Calculator() {
             nationalPension, health, care, jobInsurance,
             incomeTax, localTax, totalTax, realTakeHome
         })
+        scrollTo();
     }
 
     const resetAll = () => {
         setMoney(0)
         setHouseRent(0)
         setTaxFree(0)
-        setNumFamily(0)
+        setNumFamily(1)
         setNumKids(0)
         setResult({
             nationalPension: 0, health: 0, care: 0,
@@ -86,6 +90,7 @@ export default function Calculator() {
     ]
 
 
+
     return (
         <div className={styles.allContainer}>
             <p className={styles.titleHeader}>실수령액 계산기</p>
@@ -101,6 +106,7 @@ export default function Calculator() {
                                 type="text"
                                 value={field.value}
                                 onChange={(e: any) => field.setValue(Number(e.target.value))}
+                                required
                             />
                             <p className={styles.resultMoney}>원</p>
                         </div>
@@ -135,7 +141,7 @@ export default function Calculator() {
             }}>
                 <Image src={NextBtn} width={30} height={30} />
             </div>
-            <div className={styles.resultContainer}>
+            <div className={styles.resultContainer} ref={resultRef}>
                 <p className={styles.monthText}>한 달 기준 공제액</p>
                 <p className={styles.line}></p>
                 <div className={styles.resultList}>

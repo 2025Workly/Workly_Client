@@ -22,6 +22,7 @@
 }
 
 .input {
+    outline: none;
     width: 100%;
     padding-bottom: 3px;
     border: none;
