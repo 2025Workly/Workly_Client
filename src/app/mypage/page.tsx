@@ -1,7 +1,9 @@
+"use client"
 import styles from "../styles/mypage/mypage.module.css";
 import ProfileCard from "../components/mypage/profile-card-layout";
-import Calculator from "../components/mypage/salary-calculator";
-import ResultCount from "../components/mypage/result-count-layout";
+import Calculator from "../components/mypage/calculator-layout";
+import { useRef } from "react";
+import { motion } from "framer-motion";
 export default function Mypage() {
 
     return (
@@ -15,18 +17,8 @@ export default function Mypage() {
                 />
             </div>
 
-
             {/* 실수령액 계산기 */}
-            <div className={styles.calculateContainer}>
-                <p className={`${styles.contentName} ${styles.calTitle}`}>실수령액 계산기</p>
-                <Calculator />
-            </div>
-
-            {/* 계산 결과 */}
-            <div>
-                <ResultCount />
-            </div>
-
+            <Calculator />
 
         </div>
     )

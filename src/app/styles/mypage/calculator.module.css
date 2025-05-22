@@ -1,0 +1,93 @@
+.allContainer {
+    width: 976px;
+    margin: auto;
+}
+
+.titleHeader {
+    margin: 110px 0 43px 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.subTitle,
+.label {
+    color: #000;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.label {
+    margin: 69px 0 37px 0;
+}
+
+.input {
+    width: 100%;
+    padding-bottom: 3px;
+    border: none;
+    background: none;
+    border-bottom: 1px solid #3B44E6;
+    color: #4f4d4d;
+    font-size: 25px;
+}
+
+.inputCalcContainer {
+    border-radius: 37px;
+    background: #FFF;
+    box-shadow: 0px 4px 33.3px 0px rgba(0, 0, 0, 0.02);
+    padding: 1px 62px 47px 62px;
+}
+
+.monthText {
+    color: #1C1C1C;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.resultContainer {
+    padding: 27px 78px 47px 78px;
+    border-radius: 37px;
+    background: #FFF;
+    box-shadow: 0px 4px 33.3px 0px rgba(0, 0, 0, 0.02);
+}
+
+.line {
+    border: 1px solid #EDEDED;
+    margin: 25px 0 50px 0;
+}
+
+.bottomLine {
+    border: 1px solid #E9E9E9;
+}
+
+.FinalresultWon {
+    color: var(--main, #3B44E6);
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.result {
+    display: flex;
+    justify-content: space-between;
+}
+
+.monthResultMoney {
+    color: var(--main, #3B44E6);
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.resultList {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.resultMoney {
+    margin-left: -20px;
+    color: #8B8B8B;
+    text-align: right;
+    font-size: 18px;
+}

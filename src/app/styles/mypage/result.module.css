@@ -1,0 +1,23 @@
+.allContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.value {
+    color: #424242;
+    font-size: 25px;
+}
+
+.resultWon {
+    color: #424242;
+    text-align: right;
+    font-size: 27px;
+    font-weight: 500;
+}
+
+.won {
+    margin-left: 15px;
+    color: #424242;
+    text-align: right;
+    font-size: 25px;
+}
