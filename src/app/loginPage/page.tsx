@@ -1,12 +1,14 @@
-"use client";
+'use client';
 
 import { useState } from "react";
-
+import { useRouter } from "next/navigation";
+import styles from "../styles/Login/login.module.css"
 export default function Login() {
   const [userId, setUserId] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState("");
 
+  const router = useRouter()
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -24,7 +26,10 @@ export default function Login() {
     if (response.ok) {
       // 로그인 성공 시 JWT 토큰 저장
       localStorage.setItem("token", data.token);
+      console.log(data.token)
       alert("로그인 성공");
+      router.push('/');
+
     } else {
       // 로그인 실패 시 오류 메시지
       setError(data.message);
@@ -33,12 +38,14 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <h2>로그인</h2>
+    <div className={styles.allContainer}>
+      <h2 className={styles.h2}>로그인</h2>
       <form onSubmit={handleLogin}>
+
         <div>
-          <label>User ID</label>
           <input
+            className={`${styles.input} ${styles.firstInput}`}
+            placeholder="아이디를 입력해주세요"
             type="text"
             value={userId}
             onChange={(e) => setUserId(e.target.value)}
@@ -46,15 +53,21 @@ export default function Login() {
           />
         </div>
         <div>
-          <label>Password</label>
           <input
+            className={styles.input}
+            placeholder="비밀번호를 입력해주세요"
             type="password"
             value={pass}
             onChange={(e) => setPass(e.target.value)}
             required
           />
         </div>
-        <button type="submit">로그인</button>
+        <div className={styles.joinSuggestionContainer}>
+          <p className={styles.joinSuggestion}>계정이 없으면?</p>
+          <p onClick={() => router.push('/join')} className={styles.loginMent}> 회원가입</p>
+          <p className={styles.joinSuggestion}> 하러가기</p>
+        </div>
+        <button type="submit" className={styles.loginButton}>로그인</button>
       </form>
     </div>
   );

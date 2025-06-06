@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import axios from "axios";
+import styles from "../styles/Login/login.module.css"
 
 export default function JoinPage() {
   const [form, setForm] = useState({
@@ -46,48 +47,59 @@ export default function JoinPage() {
   };
 
   return (
-    <div>
-      <h2>회원가입</h2>
+    <div className={styles.allContainer}>
+      <h2 className={styles.h2}>회원가입</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <input
-            name="name"
-            placeholder="이름"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
+        <div style={{ display: "flex", flexDirection: "column", gap: "18px", margin: "60px 0 33px 0" }}>
+          <div>
+            <input
+              name="name"
+              placeholder="이름"
+              value={form.name}
+              onChange={handleChange}
+              required
+              className={styles.input}
+            />
+          </div>
+          <div>
+            <input
+              name="userId"
+              placeholder="아이디 (5~20자, 영문/숫자)"
+              value={form.userId}
+              onChange={handleChange}
+              required
+              className={styles.input}
+            />
+          </div>
+          <div>
+            <input
+              name="pass"
+              type="password"
+              placeholder="비밀번호 (8~20자, 영문+숫자)"
+              value={form.pass}
+              onChange={handleChange}
+              required
+              className={styles.input}
+            />
+          </div>
+          <div>
+            <input
+              name="email"
+              type="email"
+              placeholder="이메일"
+              value={form.email}
+              onChange={handleChange}
+              required
+              className={styles.input}
+            />
+          </div>
         </div>
-        <div>
-          <input
-            name="userId"
-            placeholder="아이디 (5~20자, 영문/숫자)"
-            value={form.userId}
-            onChange={handleChange}
-            required
-          />
+
+        <div className={styles.checkboxContainer}>
+          <input type="checkbox" />
+          <label htmlFor="" className={styles.agreement}>개인정보 이용에 동의 하십니까?</label>
         </div>
-        <div>
-          <input
-            name="pass"
-            type="password"
-            placeholder="비밀번호 (8~20자, 영문+숫자)"
-            value={form.pass}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <input
-            name="email"
-            type="email"
-            placeholder="이메일"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit">회원가입</button>
+        <button type="submit" className={styles.loginButton}>회원가입</button>
       </form>
       <p>{message}</p>
     </div>
