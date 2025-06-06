@@ -1,0 +1,80 @@
+.allContainer {
+    background: #F7F7F7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h2 {
+    color: #000;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.firstInput {
+    margin: 60px 0 18px 0;
+}
+
+.joinSuggestionContainer {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.input {
+    font-size: 25px;
+    border: none;
+    outline: none;
+    padding: 24px 0 24px 43px;
+    width: 616px;
+    height: 78px;
+    border-radius: 22px;
+    background: #FFF;
+    box-shadow: 0px 4px 59.7px 0px rgba(0, 0, 0, 0.02);
+}
+
+.input::placeholder {
+    color: #C8C8C8;
+    font-size: 25px;
+}
+
+.joinSuggestion,
+.loginMent {
+    text-align: center;
+    color: #999;
+    margin-top: 23px;
+    font-size: 17px;
+}
+
+.loginMent {
+    color: #424242;
+    cursor: pointer;
+}
+
+.loginButton {
+    cursor: pointer;
+    display: flex;
+    width: 616px;
+    height: 78px;
+    padding: 22px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    background: var(--main, #3B44E6);
+    color: #FFF;
+    font-size: 25px;
+    font-weight: 500;
+    margin: 74px 0 60px 0;
+}
+
+.checkboxContainer {
+    display: flex;
+    gap: 14px;
+}
+
+.agreement {
+    color: #424242;
+    font-size: 19px;
+    font-weight: 500;
+}

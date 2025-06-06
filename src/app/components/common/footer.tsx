@@ -9,7 +9,8 @@ interface FooterProps {
 export default function Footer({ isHome }: FooterProps) {
     return (
 
-        <footer className={styles.footer} style={{ background: isHome ? "linear-gradient(90deg, #3B44E6 0.01%, #396AE0 100%)" : "#F7F7F7" }}>
+        <footer className={styles.footer}
+            style={{ background: isHome ? "linear-gradient(90deg, #3B44E6 0.01%, #396AE0 100%)" : "#F7F7F7" }}>
             <div style={{ display: "flex", alignItems: "center" }}>
                 <Image src={Logo} alt="logo" className={styles.LogoImg} />
                 <div className={styles.mainFooter}>

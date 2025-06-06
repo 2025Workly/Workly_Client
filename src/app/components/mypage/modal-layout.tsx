@@ -5,7 +5,7 @@ import Link from "next/link"
 
 const ModalContainer = styled.div`
 position:absolute;
-top:380px;
+top:350px;
 right:21%;
 display:flex;
 flex-direction: column;

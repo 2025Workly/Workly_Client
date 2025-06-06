@@ -4,8 +4,8 @@ import Modal from "./modal-layout"
 import { useState } from "react"
 
 interface ProfileContentProps {
-    username: string,
-    userId: string,
+    username: any,
+    userId: any,
 }
 
 export default function ProfileCard({ username, userId }: ProfileContentProps) {
@@ -17,6 +17,7 @@ export default function ProfileCard({ username, userId }: ProfileContentProps) {
                 <img src="/images/profileImg.png" className={styles.profileImg} />
                 <p className={styles.username}>{username}</p>
                 <p className={styles.userId}>{userId}</p>
+
             </div>
 
             <img src="/images/modal.png"

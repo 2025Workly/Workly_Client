@@ -12,7 +12,9 @@ export default function Nav() {
     const pathname = usePathname();
     //const router = useRouter();
     return (
-        <div className={styles.allContainer}>
+        <div className={styles.allContainer}
+            style={{ background: pathname === "/" ? "#FFF" : "#F7F7F7" }}
+        >
             <nav className={styles.navBar}>
                 <Link href={"/"}>
                     <Image src={Logo} alt="logo" className={styles.logoImg} />
