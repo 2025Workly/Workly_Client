@@ -19,7 +19,7 @@ export default function Job() {
     const [input, setInput] = useState("")
 
     const categories = ["전체", "개발", "디자인"];
-    const token = process.env.NEXT_PUBLIC_API_TOKEN;
+    const token = localStorage.getItem("token")
 
     //카테고리별로 카드 보여주는 api 연결
     const handleCategoryClick = async (category: string) => {
@@ -115,6 +115,8 @@ export default function Job() {
                                 width="344px"
                                 padding="39px 52px"
                                 className="span"
+                                gap="0"
+                                marginRight="0"
                             />
                         ))
                     ) : (
