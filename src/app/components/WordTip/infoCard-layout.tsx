@@ -15,13 +15,10 @@ interface InfoCardProps {
 }
 export default function InfoCard({ width, padding, title, detail, gap, className, marginRight, category, contentId }: InfoCardProps) {
     const [isBookmark, setIsBookmark] = useState(false)
-    const [userId, setUserId] = useState<string | null>(null)
     const token = localStorage.getItem("token")
 
     //client에서만 l s접근
     useEffect(() => {
-        const storedUserId = localStorage.getItem("userId")
-        setUserId(storedUserId)
 
         //북마크 여부 확인 api
         const fetchStatus = async () => {
@@ -38,7 +35,7 @@ export default function InfoCard({ width, padding, title, detail, gap, className
             }
         }
         fetchStatus()
-    }, [category, contentId, userId])
+    }, [category, contentId])
 
 
     //북마크 추가 / 삭제 api
@@ -50,7 +47,6 @@ export default function InfoCard({ width, padding, title, detail, gap, className
 
         try {
             const res = await axios.post('http://localhost:5000/stored', {
-                userId,
                 category,
                 contentId
             }, {
@@ -60,7 +56,7 @@ export default function InfoCard({ width, padding, title, detail, gap, className
             });
 
             setIsBookmark(prev => !prev);
-            console.log('정보', userId, token, category, contentId)
+            console.log('정보', token, category, contentId)
             console.log('확인', res.data);
         } catch (err) {
             console.error('북마크 처리 중 오류', err);
