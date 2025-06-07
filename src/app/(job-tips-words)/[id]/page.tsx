@@ -117,6 +117,8 @@ export default function Job() {
                                 className="span"
                                 gap="0"
                                 marginRight="0"
+                                category={word.category}
+                                contentId={word.id.toString()}
                             />
                         ))
                     ) : (
@@ -135,9 +137,7 @@ export default function Job() {
                         contentPlaceholder="단어의 뜻을"
                         buttonTitle="팁 게시하기"
                         closeOnClick={() => setShowWritePopup(false)}
-
                     />
-
                 )}
             </div>
 

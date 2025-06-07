@@ -113,6 +113,9 @@ export default function TipPage() {
                                 padding="43px 57px"
                                 className="titleSpan"
                                 marginRight="16px"
+                                gap="0"
+                                category={tip.category}
+                                contentId={tip.id}
                             />
                         ))
                     ) : (
