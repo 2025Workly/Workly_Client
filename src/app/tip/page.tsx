@@ -17,7 +17,7 @@ export default function TipPage() {
     const [tips, setTips] = useState<any[]>([]) //단어 data 저장할 상태
 
     const categories = ["전체", "개발", "디자인"];
-    const token = process.env.NEXT_PUBLIC_API_TOKEN;
+    const token = localStorage.getItem("token");
 
     const handleCategoryClick = async (category: string) => {
         setActiveCategory(category)

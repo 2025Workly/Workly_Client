@@ -35,9 +35,14 @@ export default function JoinPage() {
           },
         }
       );
-
+      const { userId, name, email } = response.data;
       setMessage("회원가입이 완료되었습니다. 로그인해주세요!");
       console.log("서버 응답:", response.data);
+      localStorage.setItem("userId", userId);
+      localStorage.setItem("name", name);
+      localStorage.setItem("email", email);
+      console.log("저장한 정보", userId, name, email)
+
     } catch (error: any) {
       console.error("회원가입 오류:", error);
       setMessage(

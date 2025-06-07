@@ -13,8 +13,9 @@ interface PopupProps {
 
 export default function TipWrite({ mainPlaceholder, contentPlaceholder, closeOnClick, buttonTitle }: PopupProps) {
     const [formData, setFormData] = useState({
+        Category: "",
         tip: "",
-        explanation: ""  //임시(나중에 명세서 보고 수정)
+        explanation: ""
     })
 
     const [activeCategory, setActiveCategory] = useState('디자인')
@@ -27,9 +28,7 @@ export default function TipWrite({ mainPlaceholder, contentPlaceholder, closeOnC
         }))
     }
 
-    //1. 로그인 후 토큰 저장하기
-    //2. 저장된 토큰 여기로 불러오기
-    const token = process.env.NEXT_PUBLIC_API_TOKEN;   //⬇postman으로 발급받은 임의의 토큰임(수정하기)
+    const token = localStorage.getItem("token");
 
     const data = {
         tip: formData.tip,

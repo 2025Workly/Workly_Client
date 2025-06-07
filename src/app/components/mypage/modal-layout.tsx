@@ -21,7 +21,7 @@ padding:33px 0 0 44px;
 export default function Modal() {
     return (
         <ModalContainer>
-            <span className={styles.post}>
+            <span className={styles.save} style={{ marginBottom: "20px" }}>
                 <Link href={"/mypage/my-post"}>나의 게시물</Link>
             </span>
             <span className={styles.save}>
