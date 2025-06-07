@@ -1,4 +1,9 @@
 .savedPostAllContainer {
+    padding-top: 59px;
+    background: #F7F7F7;
+}
+
+.container {
     width: 1070px;
     margin: auto;
 }
@@ -7,10 +12,31 @@
     color: #000;
     font-size: 35px;
     font-weight: 600;
+    margin-bottom: 53px;
 }
 
 .categoryContainer {
     display: flex;
     gap: 11px;
-    margin: 52px 0 32px 0;
+}
+
+.infoCardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 1070px;
+}
+
+.noneDataFieldContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1070px;
+    height: 55vh;
+}
+
+.noneMsg {
+    color: #A0A0A0;
+    font-size: 20px;
+    font-weight: 500;
+    white-space: nowrap;
 }

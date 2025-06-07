@@ -3,6 +3,7 @@ import Button from "../common/button-layout"
 import Category from "../common/category-layout";
 import axios from "axios";
 import { useState } from "react"
+import { useRouter } from "next/navigation";
 
 interface PopupProps {
     mainPlaceholder: string,
@@ -12,7 +13,9 @@ interface PopupProps {
 }
 
 export default function Write({ mainPlaceholder, contentPlaceholder, closeOnClick, buttonTitle }: PopupProps) {
+    const router = useRouter()
     const [formData, setFormData] = useState({
+        category: "",
         word: "",
         explanation: ""  //임시(나중에 명세서 보고 수정)
     })
@@ -26,10 +29,7 @@ export default function Write({ mainPlaceholder, contentPlaceholder, closeOnClic
             [name]: value //현재 입력한 필드만 업데이트
         }))
     }
-
-    //1. 로그인 후 토큰 저장하기
-    //2. 저장된 토큰 여기로 불러오기
-    const token = process.env.NEXT_PUBLIC_API_TOKEN;   //⬇postman으로 발급받은 임의의 토큰임(수정하기)
+    const token = localStorage.getItem("token")
 
     const data = {
         word: formData.word,
@@ -49,6 +49,7 @@ export default function Write({ mainPlaceholder, contentPlaceholder, closeOnClic
                 })
 
             console.log("응답 data:", response.data)
+            router.push('job-tips-words')
             alert('게시 되었어요!')
 
         } catch (err) {

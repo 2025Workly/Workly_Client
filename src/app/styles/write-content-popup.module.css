@@ -42,6 +42,7 @@
 }
 
 .textareaStyle {
+    line-height: 35px;
     font-size: 25px;
     font-weight: 500;
     margin-top: 34px;

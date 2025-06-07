@@ -34,7 +34,7 @@
     font-weight: 400;
 }
 
-.post a {
+.save a:hover {
     color: #3B44E6;
     font-size: 22px;
     font-weight: 500;
@@ -44,5 +44,4 @@
     color: #424242;
     font-size: 22px;
     font-weight: 500;
-    margin-top: 20px;
 }

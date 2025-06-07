@@ -5,17 +5,16 @@
 }
 
 .navBar {
-    width: 100%;
-
+    width: 1070px;
     padding: 38px 0;
     display: flex;
+    gap: 532px;
     justify-content: center;
 }
 
 .logoImg {
     width: 115px;
     height: 40px;
-    margin-right: 486px;
 }
 
 .ul {
