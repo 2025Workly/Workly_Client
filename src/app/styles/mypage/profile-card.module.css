@@ -45,3 +45,8 @@
     font-size: 22px;
     font-weight: 500;
 }
+
+.logout a {
+    font-size: 22px;
+    color: #FF0000;
+}

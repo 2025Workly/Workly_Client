@@ -8,6 +8,7 @@ position:absolute;
 top:335px;
 right:26%;
 display:flex;
+gap:20px;
 flex-direction: column;
 width: 188px;
 height: 138px;
@@ -15,17 +16,28 @@ flex-shrink: 0;
 border-radius: 22px;
 background: #FFF;
 box-shadow: 0px 4px 33.3px 0px rgba(0, 0, 0, 0.02);
-padding:33px 0 0 44px;
+padding:33px 0 140px 44px;
 `
 
 export default function Modal() {
+    const Logout = () => {
+        localStorage.removeItem("userId")
+        localStorage.removeItem("name")
+        localStorage.removeItem("email")
+        console.log('로그아웃')
+    }
     return (
         <ModalContainer>
-            <span className={styles.save} style={{ marginBottom: "20px" }}>
+            <span className={styles.save}  >
                 <Link href={"/mypage/my-post"}>나의 게시물</Link>
             </span>
             <span className={styles.save}>
                 <Link href={"/mypage/save-post"}>저장</Link>
+            </span>
+            <span className={styles.logout}
+                onClick={Logout}
+            >
+                <Link href={"/loginPage"}>로그아웃</Link>
             </span>
         </ModalContainer>
     )

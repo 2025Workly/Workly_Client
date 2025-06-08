@@ -14,13 +14,14 @@ export default function ProfileCard({ username, userId }: ProfileContentProps) {
     return (
         <div className={styles.profileCardContainer}>
             <div className={styles.contentContainer}>
-                <img src="/images/profileImg.png" className={styles.profileImg} />
+                <img src="/images/profileImg.png" className={styles.profileImg} alt="profileImg" />
                 <p className={styles.username}>{username}</p>
                 <p className={styles.userId}>{userId}</p>
 
             </div>
 
             <img src="/images/modal.png"
+                alt="modal"
                 onClick={() => setOpen(!open)}
                 style={{ width: "6px", height: "33px", cursor: "pointer" }} />
             {open ? <Modal /> : null}
