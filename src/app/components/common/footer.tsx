@@ -7,6 +7,9 @@ interface FooterProps {
     isHome: boolean;
 }
 export default function Footer({ isHome }: FooterProps) {
+    const MoveToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
     return (
 
         <footer className={styles.footer}
@@ -20,9 +23,9 @@ export default function Footer({ isHome }: FooterProps) {
                     </div>
 
                     <ul className={styles.ul}>
-                        <li><Link href={"/calender"} style={{ color: isHome ? "#BBB" : "#6F6F6F" }}>일정관리</Link></li>
+                        <li onClick={MoveToTop}><Link href={"/calender"} style={{ color: isHome ? "#BBB" : "#6F6F6F" }}>일정관리</Link></li>
                         <li><Link href={"/notice-board"} style={{ color: isHome ? "#BBB" : "#6F6F6F" }}>게시판</Link></li>
-                        <li><Link href={"/job-tips-words"} style={{ color: isHome ? "#BBB" : "#6F6F6F" }}>직무</Link></li>
+                        <li onClick={MoveToTop}><Link href={"/job-tips-words"} style={{ color: isHome ? "#BBB" : "#6F6F6F" }}>직무</Link></li>
                         <li><Link href={"/mypage"} style={{ color: isHome ? "#BBB" : "#6F6F6F" }}>마이페이지</Link></li>
                     </ul>
                 </div>

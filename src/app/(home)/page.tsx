@@ -10,6 +10,7 @@ import Icon3 from "../../../public/images/icon3.png";
 import Icon4 from "../../../public/images/icon4.png";
 
 export default function Home() {
+
   return (
     <div className={styles.allContainer}>
       <BannerSlicer isMain={true} />

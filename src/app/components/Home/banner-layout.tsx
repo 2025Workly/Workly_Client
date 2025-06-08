@@ -22,22 +22,19 @@ export default function BannerSlicer({ isMain }: BannerSlicerProps) {
     return (
         <div className={styles.bannerSlider}>
             <div className={styles.bannerContainer}>
-                {/* 왼쪽 */}
                 <Image
-                    src={banners[getPrevIndex()]}
-                    alt="Previous Banner"
+                    src={banners[(currentIndex - 1 + banners.length) % banners.length]}
+                    alt="Prev"
                     className={`${styles.bannerImage} ${styles.sub}`}
                 />
-                {/* 가운데 */}
                 <Image
                     src={banners[currentIndex]}
-                    alt="Main Banner"
+                    alt="Current"
                     className={`${styles.bannerImage} ${styles.main}`}
                 />
-                {/*오른쪽 */}
                 <Image
-                    src={banners[getNextIndex()]}
-                    alt="Next Banner"
+                    src={banners[(currentIndex + 1) % banners.length]}
+                    alt="Next"
                     className={`${styles.bannerImage} ${styles.sub}`}
                 />
             </div>
@@ -52,5 +49,6 @@ export default function BannerSlicer({ isMain }: BannerSlicerProps) {
                 ))}
             </div>
         </div>
+
     );
 }
