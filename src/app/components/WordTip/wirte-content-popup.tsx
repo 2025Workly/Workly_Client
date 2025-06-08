@@ -3,17 +3,19 @@ import Button from "../common/button-layout"
 import Category from "../common/category-layout";
 import axios from "axios";
 import { useState } from "react"
-import { useRouter } from "next/navigation";
-
+import PostedCard from "./posted-layout";
 interface PopupProps {
     mainPlaceholder: string,
     contentPlaceholder: string,
     buttonTitle: string,
     closeOnClick: () => void;
+    onSuccessPost: () => void;
 }
 
-export default function Write({ mainPlaceholder, contentPlaceholder, closeOnClick, buttonTitle }: PopupProps) {
-    const router = useRouter()
+export default function Write({ mainPlaceholder, contentPlaceholder, closeOnClick, buttonTitle, onSuccessPost }: PopupProps) {
+
+    const [show, setShow] = useState(false)
+
     const [formData, setFormData] = useState({
         category: "",
         word: "",
@@ -49,9 +51,9 @@ export default function Write({ mainPlaceholder, contentPlaceholder, closeOnClic
                 })
 
             console.log("응답 data:", response.data)
-            router.push('job-tips-words')
-            alert('게시 되었어요!')
 
+            setShow(true)
+            onSuccessPost()
         } catch (err) {
             console.error('오류 발생', err)
             alert('제목 수를 줄여주세요!')
@@ -104,6 +106,7 @@ export default function Write({ mainPlaceholder, contentPlaceholder, closeOnClic
                     </div>
                     <Button title={buttonTitle} />
                 </form>
+                {show && <PostedCard />}
             </div>
         </div>
     )

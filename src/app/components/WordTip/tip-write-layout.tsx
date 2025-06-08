@@ -9,9 +9,10 @@ interface PopupProps {
     contentPlaceholder: string,
     buttonTitle: string,
     closeOnClick: () => void;
+    onSuccessPost: () => void;
 }
 
-export default function TipWrite({ mainPlaceholder, contentPlaceholder, closeOnClick, buttonTitle }: PopupProps) {
+export default function TipWrite({ mainPlaceholder, contentPlaceholder, closeOnClick, buttonTitle, onSuccessPost }: PopupProps) {
     const [formData, setFormData] = useState({
         Category: "",
         tip: "",
@@ -27,6 +28,8 @@ export default function TipWrite({ mainPlaceholder, contentPlaceholder, closeOnC
             [name]: value //현재 입력한 필드만 업데이트
         }))
     }
+
+    const [show, setShow] = useState(false)
 
     const token = localStorage.getItem("token");
 
@@ -48,7 +51,7 @@ export default function TipWrite({ mainPlaceholder, contentPlaceholder, closeOnC
                 })
 
             console.log("응답 data:", response.data)
-            alert('게시 되었어요!')
+            onSuccessPost()
 
         } catch (err) {
             console.error('오류 발생', err)

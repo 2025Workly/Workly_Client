@@ -5,11 +5,10 @@ import Button from "@/app/components/common/button-layout";
 import styles from "../../../app/(job-tips-words)/job-layout.module.css"
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Link from "next/link";
 import Write from "@/app/components/WordTip/wirte-content-popup";
 import InfoCard from "@/app/components/WordTip/infoCard-layout";
 import Header from "@/app/components/WordTip/header-layout";
-
+import PostedCard from "@/app/components/WordTip/posted-layout";
 
 
 export default function Job() {
@@ -17,6 +16,7 @@ export default function Job() {
     const [showWritePopup, setShowWritePopup] = useState(false)
     const [words, setWords] = useState<any[]>([]) //단어 data 저장할 상태
     const [input, setInput] = useState("")
+    const [showPostedCheck, setShowPostedCheck] = useState(false)
 
     const categories = ["전체", "개발", "디자인"];
     const token = localStorage.getItem("token")
@@ -72,6 +72,7 @@ export default function Job() {
 
         return () => clearTimeout(timer) //setTimeout함수 취소
     }, [input])
+
     return (
         <div className={styles.allContainer}>
             <div className={styles.contentContainer}>
@@ -104,7 +105,6 @@ export default function Job() {
                     </span>
                 </div>
 
-
                 {/* 정보 카드들 */}
                 <div className={styles.infoCardContainer}>
                     {words.length > 0 ? (
@@ -125,7 +125,8 @@ export default function Job() {
                         ))
                     ) : (
                         <div className={styles.noneDataFieldContainer}>
-                            <p className={styles.noneMsg}>해당 카테고리에 해당하는 직무 팁이 없습니다.</p>
+                            <p className={styles.noneMsg}>
+                                해당 카테고리에 해당하는 직무 팁이 없습니다.</p>
                         </div>
                     )}
                 </div>
@@ -134,13 +135,27 @@ export default function Job() {
             {/* 작성 팝업 */}
             <div className={styles.popupContainer}>
                 {showWritePopup && (
-                    <Write
-                        mainPlaceholder="단어를"
-                        contentPlaceholder="해당 단어의 뜻을"
-                        buttonTitle="단어 게시하기"
-                        closeOnClick={() => setShowWritePopup(false)}
-                    />
+                    <>
+                        <Write
+                            mainPlaceholder="단어를"
+                            contentPlaceholder="해당 단어의 뜻을"
+                            buttonTitle="단어 게시하기"
+                            closeOnClick={() => setShowWritePopup(false)}
+                            onSuccessPost={() => {
+                                setShowWritePopup(false)
+                                setShowPostedCheck(true)
+                                handleCategoryClick(activeCategory)
+                                setTimeout(() => {
+                                    setShowPostedCheck(false);
+                                }, 2500);
+                            }}
+                        />
+                    </>
                 )}
+            </div>
+
+            <div>
+                {showPostedCheck && <PostedCard />}
             </div>
 
         </div >

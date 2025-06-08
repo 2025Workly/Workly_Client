@@ -8,14 +8,14 @@ import axios from "axios";
 import TipWrite from "../components/WordTip/tip-write-layout";
 import InfoCard from "@/app/components/WordTip/infoCard-layout";
 import Header from "@/app/components/WordTip/header-layout";
-
+import PostedCard from "../components/WordTip/posted-layout";
 
 
 export default function TipPage() {
     const [activeCategory, setActiveCategory] = useState<string>("전체")
     const [showWritePopup, setShowWritePopup] = useState(false)
     const [tips, setTips] = useState<any[]>([]) //단어 data 저장할 상태
-
+    const [showPostedCheck, setShowPostedCheck] = useState(false)
     const categories = ["전체", "개발", "디자인"];
     const token = localStorage.getItem("token");
 
@@ -48,7 +48,7 @@ export default function TipPage() {
                     Authorization: `Bearer ${token}`
                 }
             })
-            setActiveCategory("")
+            setActiveCategory("전체")
             const searchData = response.data.tips
             setTips(searchData)
             console.log("검색한 데이터: ", searchData)
@@ -135,11 +135,20 @@ export default function TipPage() {
                         contentPlaceholder="해당 팁에 대한 자세한 설명을"
                         buttonTitle="팁 게시하기"
                         closeOnClick={() => setShowWritePopup(false)}
+                        onSuccessPost={() => {
+                            setShowWritePopup(false)
+                            setShowPostedCheck(true)
+                            handleCategoryClick(activeCategory)
+
+                            setTimeout(() => {
+                                setShowPostedCheck(false)
+                            }, 2500)
+                        }}
                     />
 
                 )}
             </div>
-
+            {showPostedCheck && <PostedCard />}
         </div >
     )
 }
