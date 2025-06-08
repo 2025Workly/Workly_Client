@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className={styles.allContainer}>
       <BannerSlicer isMain={true} />
-      <div className={`${styles.card} ${styles.card1}`} style={{ marginTop: "60px" }}>
+      <div className={`${styles.card} ${styles.card1}`} style={{ marginTop: "60px", alignItems: "center" }}>
         <Content
           title="야근 및 일정관리"
           description={`업무를 편리하게 체크리스트로 관리\n
@@ -67,19 +67,21 @@ export default function Home() {
 
       <div className={`${styles.card} ${styles.card4}`}>
         <Image src={Icon4} alt="mypage" className={styles.icon4} />
-        <Content
-          title="실수령액 계산기"
-          description={`월세도 포함하여 더욱 자세한 실수령액을\n 알아보세요!`}
-          href="/mypage"
-          titleColor="#FFF"
-          btnFontColor="#3B44E6"
-          btnBackground="#E6E6E6"
-          style={{
-            lineHeight: 1.5,
-            color: "#DEDEDE",
-            fontWeight: 600
-          }}
-        />
+        <div>
+          <Content
+            title="실수령액 계산기"
+            description={`월세도 포함하여 더욱 자세한 실수령액을\n 알아보세요!`}
+            href="/mypage"
+            titleColor="#FFF"
+            btnFontColor="#3B44E6"
+            btnBackground="#E6E6E6"
+            style={{
+              lineHeight: 1.5,
+              color: "#DEDEDE",
+              fontWeight: 600
+            }}
+          />
+        </div>
       </div>
 
 

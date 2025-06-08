@@ -1,9 +1,7 @@
 .card {
     width: 100%;
     display: flex;
-    /*임시*/
     gap: 30px;
-    /* padding: 197px 425px 142px 424px; */
 }
 
 .card {
@@ -21,6 +19,7 @@
     gap: 222px;
     padding: 253px 0 279px 0;
     background: #F7F7F7;
+    align-items: center;
 }
 
 .card3 {
@@ -31,6 +30,7 @@
 
 .card4 {
     display: flex;
+    align-items: center;
     gap: 186px;
     padding: 164px 0;
     background: linear-gradient(90deg, #3B44E6 0.01%, #396AE0 100%);

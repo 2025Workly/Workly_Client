@@ -17,9 +17,7 @@ interface ContentTitleProps {
 export default function Content({ title, href, description, style, titleColor, btnFontColor, btnBackground }: ContentTitleProps) {
     const ref = useRef(null)
     const [isVisible, setIsVisible] = useState(false)
-    const MoveToTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" })
-    }
+
     useEffect(() => {
         const observer = new IntersectionObserver(
             entries => {
