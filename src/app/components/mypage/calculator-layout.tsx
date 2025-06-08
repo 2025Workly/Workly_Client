@@ -150,7 +150,7 @@ export default function Calculator() {
                 margin: "31px auto 50px auto", display: "flex",
                 justifyContent: "center"
             }}>
-                <Image src={NextBtn} width={30} height={30} />
+                <Image src={NextBtn} width={30} height={30} alt="nextbutton" />
             </div>
             <div className={styles.resultContainer} ref={resultRef}>
                 <p className={styles.monthText}>한 달 기준 공제액</p>

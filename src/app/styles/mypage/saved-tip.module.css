@@ -1,6 +1,7 @@
 .savedPostAllContainer {
     padding-top: 59px;
     background: #F7F7F7;
+    height: 100vh;
 }
 
 .container {
@@ -20,10 +21,18 @@
     gap: 11px;
 }
 
+.tipContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 1070px;
+    gap: 16px;
+}
+
 .infoCardContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 1070px;
+    gap: 16px;
 }
 
 .noneDataFieldContainer {

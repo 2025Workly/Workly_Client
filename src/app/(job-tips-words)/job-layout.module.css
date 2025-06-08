@@ -25,12 +25,15 @@
 }
 
 .infoCardContainer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
     width: 1070px;
+    margin-bottom: 17px;
 }
 
 .TipInfoCardContainer {
+    margin-bottom: 17px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 1070px;

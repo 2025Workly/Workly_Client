@@ -54,6 +54,7 @@ export default function Write({ mainPlaceholder, contentPlaceholder, closeOnClic
 
         } catch (err) {
             console.error('오류 발생', err)
+            alert('제목 수를 줄여주세요!')
         }
     }
     return (
