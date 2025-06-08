@@ -50,8 +50,9 @@ export default function Job() {
                     Authorization: `Bearer ${token}`,
                 }
             })
-            setActiveCategory("검색결과")
+
             const data = response.data.words
+            setActiveCategory("전체")
             setWords(data)
             console.log("검색 결과: ", data)
         } catch (err) {
@@ -71,7 +72,6 @@ export default function Job() {
 
         return () => clearTimeout(timer) //setTimeout함수 취소
     }, [input])
-
     return (
         <div className={styles.allContainer}>
             <div className={styles.contentContainer}>
@@ -104,18 +104,20 @@ export default function Job() {
                     </span>
                 </div>
 
+
                 {/* 정보 카드들 */}
                 <div className={styles.infoCardContainer}>
                     {words.length > 0 ? (
                         words.map((word) => (
                             <InfoCard
+                                tabType='word'
                                 key={word.id}
                                 title={word.word}
                                 detail={word.explanation}
                                 width="344px"
                                 padding="39px 52px"
                                 className="span"
-                                gap="0"
+                                gap="19px"
                                 marginRight="0"
                                 category={word.category}
                                 contentId={word.id.toString()}
@@ -134,8 +136,8 @@ export default function Job() {
                 {showWritePopup && (
                     <Write
                         mainPlaceholder="단어를"
-                        contentPlaceholder="단어의 뜻을"
-                        buttonTitle="팁 게시하기"
+                        contentPlaceholder="해당 단어의 뜻을"
+                        buttonTitle="단어 게시하기"
                         closeOnClick={() => setShowWritePopup(false)}
                     />
                 )}

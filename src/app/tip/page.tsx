@@ -106,6 +106,7 @@ export default function TipPage() {
                     {tips.length > 0 ? (
                         tips.map((tip) => (
                             <InfoCard
+                                tabType="tip"
                                 key={tip.id}
                                 title={tip.tip}
                                 detail={tip.explanation}
@@ -113,9 +114,9 @@ export default function TipPage() {
                                 padding="43px 57px"
                                 className="titleSpan"
                                 marginRight="16px"
-                                gap="0"
                                 category={tip.category}
                                 contentId={tip.id}
+                                gap="16px"
                             />
                         ))
                     ) : (
@@ -130,8 +131,8 @@ export default function TipPage() {
             <div style={{ zIndex: "1000" }}>
                 {showWritePopup && (
                     <TipWrite
-                        mainPlaceholder="단어를"
-                        contentPlaceholder="단어의 뜻을"
+                        mainPlaceholder="공유하고 싶은 팁을"
+                        contentPlaceholder="해당 팁에 대한 자세한 설명을"
                         buttonTitle="팁 게시하기"
                         closeOnClick={() => setShowWritePopup(false)}
                     />

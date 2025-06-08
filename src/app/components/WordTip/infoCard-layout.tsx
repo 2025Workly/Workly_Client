@@ -2,6 +2,7 @@
 import styles from "../../styles/tips/infoCard.module.css"
 import { useState, useEffect } from "react"
 import axios from "axios"
+
 interface InfoCardProps {
     width: string,
     padding: string,
@@ -10,22 +11,22 @@ interface InfoCardProps {
     gap: string,
     className: string,
     marginRight: string,
-    category: 'word' | 'tip',
+    category: string,
+    tabType: 'word' | 'tip';
     contentId: string,
 }
-export default function InfoCard({ width, padding, title, detail, gap, className, marginRight, category, contentId }: InfoCardProps) {
+export default function InfoCard({ width, padding, title, detail, gap, className, marginRight, category, tabType, contentId }: InfoCardProps) {
     const [isBookmark, setIsBookmark] = useState(false)
     const token = localStorage.getItem("token")
 
-    //client에서만 l s접근
     useEffect(() => {
 
         //북마크 여부 확인 api
         const fetchStatus = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/stored/check/${category}/${contentId}`, {
+                const res = await axios.get(`http://localhost:5000/stored/check/${tabType}/${contentId}`, {
                     headers: {
-                        Authorization: `Bearer ${token}`
+                        Authorization: `Bearer ${token}`,
                     }
                 })
                 setIsBookmark(res.data.bookmarked)
@@ -35,7 +36,7 @@ export default function InfoCard({ width, padding, title, detail, gap, className
             }
         }
         fetchStatus()
-    }, [category, contentId])
+    }, [tabType, contentId])
 
 
     //북마크 추가 / 삭제 api
@@ -47,7 +48,7 @@ export default function InfoCard({ width, padding, title, detail, gap, className
 
         try {
             const res = await axios.post('http://localhost:5000/stored', {
-                category,
+                category: tabType,
                 contentId
             }, {
                 headers: {
@@ -73,6 +74,7 @@ export default function InfoCard({ width, padding, title, detail, gap, className
                     style={{ width: "19px", height: "25px", cursor: "pointer" }} />
             </div>
             <div className={styles.detail}>{detail}</div>
+            <div style={{ fontSize: "15px", marginTop: "10px", color: "#B8B8B8" }}>{category}</div>
         </div >
     )
 }
