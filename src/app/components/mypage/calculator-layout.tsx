@@ -13,7 +13,7 @@ import { useRef } from "react"
 
 export default function Calculator() {
     const [money, setMoney] = useState(0) //세전 월급
-    const [houseRent, setHouseRent] = useState(0)
+    // const [houseRent, setHouseRent] = useState(0)
     const [taxFree, setTaxFree] = useState(0) //비과세
     const [numKids, setNumKids] = useState(0)
     const [numFamily, setNumFamily] = useState(1)
@@ -37,7 +37,7 @@ export default function Calculator() {
         const localTax = incomeTax * 0.1;
 
         const totalTax = nationalPension + health + care + jobInsurance + incomeTax + localTax;
-        const realTakeHome = money - totalTax - houseRent;
+        const realTakeHome = money - totalTax;
 
         setResult({
             nationalPension, health, care, jobInsurance,
@@ -48,7 +48,6 @@ export default function Calculator() {
 
     const resetAll = () => {
         setMoney(0)
-        setHouseRent(0)
         setTaxFree(0)
         setNumFamily(1)
         setNumKids(0)
@@ -78,8 +77,7 @@ export default function Calculator() {
 
 
     const inputField = [
-        { label: "월 실수령액", value: formatComma(money), setValue: setMoney },
-        { label: "월세", value: formatComma(houseRent), setValue: setHouseRent },
+        { label: "월급", value: formatComma(money), setValue: setMoney },
         { label: "비과세액", value: formatComma(taxFree), setValue: setTaxFree },
     ]
     const resultList = [
