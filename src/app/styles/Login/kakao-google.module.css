@@ -1,0 +1,39 @@
+.lineContainer {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.line {
+    width: 251px;
+    height: 1px;
+    background: #D0D0D0;
+}
+
+.or {
+    color: #D0D0D0;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.kakaoicon {
+    width: 68px;
+    height: 68px;
+}
+
+.icon {
+    width: 95px;
+    height: 95px;
+}
+
+.iconContainer {
+    cursor: pointer;
+    display: flex;
+    gap: 30px;
+    justify-items: center;
+    align-items: center;
+    margin: 20px 0 132px 0;
+}

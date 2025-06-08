@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../styles/Login/login.module.css"
+import KaKaoGoogle from "../components/common/kakao-google";
 export default function Login() {
   const [userId, setUserId] = useState("");
   const [pass, setPass] = useState("");
@@ -68,6 +69,9 @@ export default function Login() {
           <p className={styles.joinSuggestion}> 하러가기</p>
         </div>
         <button type="submit" className={styles.loginButton}>로그인</button>
+
+        <KaKaoGoogle />
+
       </form>
     </div>
   );

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import axios from "axios";
 import styles from "../styles/Login/login.module.css"
+import KaKaoGoogle from "../components/common/kakao-google";
 
 export default function JoinPage() {
   const [form, setForm] = useState({
@@ -59,7 +60,7 @@ export default function JoinPage() {
           <div>
             <input
               name="name"
-              placeholder="이름"
+              placeholder="닉네임을 입력해주세요"
               value={form.name}
               onChange={handleChange}
               required
@@ -69,7 +70,7 @@ export default function JoinPage() {
           <div>
             <input
               name="userId"
-              placeholder="아이디 (5~20자, 영문/숫자)"
+              placeholder="아이디를 입력해주세요 (5~20자, 영문/숫자)"
               value={form.userId}
               onChange={handleChange}
               required
@@ -80,7 +81,7 @@ export default function JoinPage() {
             <input
               name="pass"
               type="password"
-              placeholder="비밀번호 (8~20자, 영문+숫자)"
+              placeholder="비밀번호를 입력해주세요 (8~20자, 영문+숫자)"
               value={form.pass}
               onChange={handleChange}
               required
@@ -91,7 +92,7 @@ export default function JoinPage() {
             <input
               name="email"
               type="email"
-              placeholder="이메일"
+              placeholder="이메일을 입력해주세요"
               value={form.email}
               onChange={handleChange}
               required
@@ -101,10 +102,12 @@ export default function JoinPage() {
         </div>
 
         <div className={styles.checkboxContainer}>
-          <input type="checkbox" />
+          <input type="checkbox" className={styles.checkbox} />
           <label htmlFor="" className={styles.agreement}>개인정보 이용에 동의 하십니까?</label>
         </div>
         <button type="submit" className={styles.loginButton}>회원가입</button>
+
+        <KaKaoGoogle />
       </form>
       <p>{message}</p>
     </div>

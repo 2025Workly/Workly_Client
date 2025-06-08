@@ -23,7 +23,7 @@
 }
 
 .input {
-    font-size: 25px;
+    font-size: 20px;
     border: none;
     outline: none;
     padding: 24px 0 24px 43px;
@@ -36,7 +36,7 @@
 
 .input::placeholder {
     color: #C8C8C8;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .joinSuggestion,
@@ -50,6 +50,11 @@
 .loginMent {
     color: #424242;
     cursor: pointer;
+}
+
+.checkbox {
+    width: 23px;
+    height: 23px;
 }
 
 .loginButton {
@@ -66,7 +71,7 @@
     color: #FFF;
     font-size: 25px;
     font-weight: 500;
-    margin: 74px 0 60px 0;
+    margin: 38px 0 60px 0;
 }
 
 .checkboxContainer {
