@@ -3,9 +3,9 @@ import styles from "../../styles/Home/banner-layout.module.css";
 import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
 
-import Banner1 from "../../../../public/images/testBanner1.png";
-import Banner2 from "../../../../public/images/testBanner2.png";
-import Banner3 from "../../../../public/images/testBanner3.png";
+import Banner1 from "../../../../public/images/Banner1.jpg";
+import Banner2 from "../../../../public/images/Banner2.jpg";
+import Banner3 from "../../../../public/images/Banner3.png";
 
 interface BannerSlicerProps {
     isMain: boolean;
