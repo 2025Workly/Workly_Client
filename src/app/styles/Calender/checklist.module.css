@@ -1,0 +1,71 @@
+.addAndToggleContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.AddCheckList {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+
+.CheckListAllContainer {
+    width: 485px;
+    height: 552px;
+    border-radius: 35px;
+    background: #FFF;
+    box-shadow: 0px 4px 71.7px 0px rgba(0, 0, 0, 0.02);
+    padding: 38px 0 53px 0;
+}
+
+.line {
+    margin: 22px 0 33px 0;
+    width: 100%;
+    height: 1px;
+    background-color: #E5E5E5;
+}
+
+.toggleContainer {
+    display: flex;
+}
+
+.checkListText {
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.overTimeText {
+    color: #797979;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.checkbox {
+    width: 27px;
+    height: 27px;
+    border-radius: 5px;
+    background: #E9E9E9;
+}
+
+.input {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #424242;
+    width: 322px;
+    color: #424242;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.input[type="checkbox"] {
+    background: #E9E9E9;
+}
+
+.writeContainer {
+    padding-left: 62px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
