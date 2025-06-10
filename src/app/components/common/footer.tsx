@@ -6,16 +6,19 @@ import Logo from "../../../../public/images/footerLogo.png"
 interface FooterProps {
     isHome: boolean;
 }
+
 export default function Footer({ isHome }: FooterProps) {
     const MoveToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" })
     }
-    return (
 
+    return (
         <footer className={styles.footer}
             style={{ background: isHome ? "linear-gradient(90deg, #3B44E6 0.01%, #396AE0 100%)" : "#F7F7F7" }}>
             <div style={{ display: "flex", alignItems: "center" }}>
-                <Image src={Logo} alt="logo" className={styles.LogoImg} />
+                <Link href={"/"}>
+                    <Image onClick={MoveToTop} src={Logo} alt="logo" className={styles.LogoImg} />
+                </Link>
                 <div className={styles.mainFooter}>
                     <div className={styles.producer}>
                         <span style={{ color: isHome ? "#AFAFAF" : "#727272" }}>제작자</span>
@@ -31,6 +34,5 @@ export default function Footer({ isHome }: FooterProps) {
                 </div>
             </div>
         </footer>
-
     )
 }
