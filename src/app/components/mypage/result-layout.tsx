@@ -1,8 +1,8 @@
 "use client"
 import styles from "../../styles/mypage/result.module.css"
 type infoProps = {
-    value: String;
-    resultWon: String;
+    value: string;
+    resultWon: string;
 }
 export default function ResultField({ value, resultWon }: infoProps) {
     return (
