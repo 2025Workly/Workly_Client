@@ -1,11 +1,25 @@
 "use client"
+
+import {useEffect, useState} from "react";
 import styles from "../styles/mypage/mypage.module.css";
 import ProfileCard from "../components/mypage/profile-card-layout";
 import Calculator from "../components/mypage/calculator-layout";
 export default function Mypage() {
-    const token = localStorage.getItem("token")
-    const username = localStorage.getItem("name")
-    const email = localStorage.getItem("email")
+    const [token, setToken] = useState<string | null>(null);
+  const [username, setUsername] = useState<string | null>(null);
+  const [email, setEmail] = useState<string | null>(null);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    const storedName = localStorage.getItem("name");
+    const storedEmail = localStorage.getItem("email");
+
+    setToken(storedToken);
+    setUsername(storedName);
+    setEmail(storedEmail);
+  }, []);
+
+
     console.log(token)
     return (
         <div className={styles.allContainer}>

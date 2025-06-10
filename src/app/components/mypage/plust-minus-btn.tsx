@@ -18,6 +18,7 @@ export default function PlusMinusBtn({ title, setNumPlus, setNumMinus, numValue 
             }}>{title}</p>
             <div style={{ display: "flex", alignItems: "center", gap: "44px", marginLeft: "3px", cursor: "pointer" }}>
                 <Image
+                    alt="플러스버튼"
                     src={plusBtnImg}
                     width={30}
                     height={30}
@@ -29,6 +30,7 @@ export default function PlusMinusBtn({ title, setNumPlus, setNumMinus, numValue 
 
                 }}>{numValue}</p>
                 <Image
+                    alt="마이너스 버튼"
                     src={minusBtnImg}
                     width={30}
                     height={30}
