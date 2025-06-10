@@ -4,6 +4,11 @@
     height: 100vh;
 }
 
+.savedContainer {
+    margin: auto;
+
+}
+
 .container {
     width: 1070px;
     margin: auto;

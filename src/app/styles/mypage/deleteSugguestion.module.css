@@ -1,0 +1,72 @@
+.popupContainer {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.suggestionCard {
+    z-index: 1;
+    width: 465px;
+    height: 328px;
+    border-radius: 22px;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.deletement {
+    text-align: center;
+    color: #000;
+    text-align: center;
+    font-size: 23px;
+    font-weight: 600;
+    margin-top: 17px;
+}
+
+.noReturn {
+    text-align: center;
+    color: #595959;
+    text-align: center;
+    font-size: 17px;
+    margin: 13px 0 37px 0;
+}
+
+.btnContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    cursor: pointer;
+    border: none;
+    display: flex;
+    width: 181px;
+    height: 55px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+}
+
+.delete {
+    color: #FFF;
+    background: var(--main, #3B44E6);
+    font-size: 17px;
+}
+
+.cancel {
+    background-color: #FFF;
+    color: var(--main, #3B44E6);
+    font-size: 17px;
+    font-weight: 500;
+    border: 2px solid var(--main, #3B44E6);
+}
