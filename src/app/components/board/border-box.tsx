@@ -1,4 +1,5 @@
 import CategoryBox from "./category-box"
+import styles from "../../styles/board/board.module.css"
 
 type CategoryProps  = {
     tag : string,
@@ -8,10 +9,10 @@ type CategoryProps  = {
 
 export default function BorderBox({ tag, title, userId } : CategoryProps ) {
     return (
-        <div>
+        <div className={styles.borderbox}>
             <CategoryBox tag={tag}/>
-            <div>{title}</div>
-            <div>{userId}</div>
+            <div className={styles.title}>{title}</div>
+            <div className={styles.name}>{userId}</div>
         </div>
     );
 }

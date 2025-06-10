@@ -70,7 +70,7 @@ export default function TipPage() {
     }, [input])
 
     return (
-        <div className={styles.allContainer}>
+        <div className ={styles.allContainer}>
             <div className={styles.contentContainer}>
                 <div className={styles.searchHeaderContainer}>
                     <Header />

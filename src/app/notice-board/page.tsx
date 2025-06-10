@@ -5,23 +5,45 @@ import axios from "axios";
 import "@/app/api/fetchWithAuth";
 import { fetchWithAuth } from "@/app/api/fetchWithAuth";
 import BorderBox from "../components/board/border-box";
+import TagButton from "../components/board/tag-button";
 
 export default function Board() {
-
+    const [tagactive, setTagactive] = useState<string>("전체");
     const [boards, setBoards] = useState<any[]>([]);
+    const tagtext = ["전체", "고민", "질문"];
 
-    const fetchData = async () => {
-       try {
-        const response = await fetchWithAuth(`http://localhost:5000/board`);
-        const data = await response.json();
-        setBoards(data.boards);
-       }catch(err) {
+    // 태그 매핑 객체 - 한국어 태그를 API용 영어 값으로 변환
+    const tagMapping: { [key: string]: string } = {
+        "전체": "",      // 또는 빈 문자열 ""이나 null 처리
+        "고민": "worry",
+        "질문": "question"
+    };
+
+    const fetchData = async (tag: string) => {
+        setTagactive(tag);
+
+        try {
+            let apiEndpoint;
+            
+            if (tag === "전체") {
+                // 전체일 때는 파라미터 없이 모든 게시물 조회
+                apiEndpoint = "http://localhost:5000/board";
+            } else {
+                // 특정 태그일 때는 매핑된 값으로 조회
+                const mappedTag = tagMapping[tag];
+                apiEndpoint = `http://localhost:5000/board/${mappedTag}`;
+            }
+            
+            const response = await fetchWithAuth(apiEndpoint);
+            const data = await response.json();
+            setBoards(data.boards);
+        } catch(err) {
             console.error("api 호출 오류  ", err);
-       }
+        }
     }
 
     useEffect(() => {
-        fetchData();
+        fetchData("전체");
     }, [])
     
     return (
@@ -30,12 +52,23 @@ export default function Board() {
                 <h2>Top3</h2>
                 <h2>게시판</h2>
 
+                <div>
+                    {tagtext.map((tag) => (
+                        <TagButton 
+                            key={tag}
+                            type={tag}
+                            onClick={() => fetchData(tag)}
+                            isActive={tag === tagactive}
+                        />
+                    ))}
+                </div>
+
                 {boards.map((item) => (
                     <BorderBox 
-                    key={item.id}
-                    tag={item.tag}
-                    title={item.title}
-                    userId={item.userId}
+                        key={item.id}
+                        tag={item.tag}
+                        title={item.title}
+                        userId={item.userId}
                     />
                 ))}
 
