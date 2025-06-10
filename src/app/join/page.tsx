@@ -6,12 +6,14 @@ import styles from "../styles/Login/login.module.css"
 import KaKaoGoogle from "../components/common/kakao-google";
 
 export default function JoinPage() {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState(
+    {
     name: "",
     userId: "",
     pass: "",
     email: "",
-  });
+  }
+);
 
   const [message, setMessage] = useState("");
 
