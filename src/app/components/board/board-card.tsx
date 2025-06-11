@@ -1,3 +1,4 @@
+import { div } from "framer-motion/client";
 import styles from "../../styles/board/board-card.module.css";
 
 type BoardCardProps = {
@@ -15,11 +16,15 @@ const BoardCard: React.FC<BoardCardProps> = ({ title, order }) => {
   const style = rankStyles[order - 1] || { bg: '#fff', img: '' };
 
   return (
-    <div style={{backgroundColor: style.bg}} className={styles.popular}>
-        {style.img && (
-          <img src={style.img} alt={`${order}위 이미지`} width={121} height={98} />
-        )}
-        <h3 style={{color: "white"}}>{title}</h3>
+      <div style={{backgroundColor: style.bg}} className={styles.popular}>
+        <div className={styles.rank_card_inner}>
+          <div className={styles.rank_box}>
+              {style.img && (
+                <img src={style.img} alt={`${order}위 이미지`} width={121} height={98}  />
+              )}
+          </div>
+            <p style={{color: "white", fontSize: "25px", margin: "30px"}}>{title}</p>
+        </div>
     </div>
   );
 };

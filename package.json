@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^1.9.0",
+    "dayjs": "^1.11.13",
     "framer-motion": "^12.16.0",
     "jsonwebtoken": "^9.0.2",
     "module": "^1.2.5",
