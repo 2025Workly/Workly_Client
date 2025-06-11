@@ -1,0 +1,10 @@
+.popular {
+    width: 350px;
+    height: 373px;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 102px;
+}

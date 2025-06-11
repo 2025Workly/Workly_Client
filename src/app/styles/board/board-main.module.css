@@ -1,0 +1,39 @@
+.tagbox {
+    display: flex;
+    column-gap: 11px;
+    margin-bottom: 25px;
+    margin-top: 45px;
+    align-items: center;
+}
+
+.tag_button {
+    width: 92px;
+    height: 40px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.click {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.default {
+    background-color: #EBEBEB;
+    color: #424242;
+}
+
+.board_plus {
+    font-size: 20px;
+    margin-left: 614px;
+}
+
+.board_card {
+    display: flex;  
+    column-gap: 10px;
+    margin-top: 45px;
+    margin-bottom: 65px;
+}
