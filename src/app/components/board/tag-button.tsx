@@ -1,3 +1,5 @@
+import styles from "../../styles/board/board-main.module.css"
+
 type tagButtonProps = {
     type : string,
     onClick: ()=> void,
@@ -7,8 +9,9 @@ type tagButtonProps = {
 
 export default function TagButton({type, onClick, isActive} : tagButtonProps) {
     return (
-        <div>
-            <div onClick={onClick}>{type}</div>
-        </div>
+            <div 
+             className={`${styles.tag_button} ${isActive ? styles.click : styles.default}`}
+             onClick={onClick}
+             >{type}</div>
     )
 }

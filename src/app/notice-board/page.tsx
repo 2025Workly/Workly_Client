@@ -6,15 +6,17 @@ import "@/app/api/fetchWithAuth";
 import { fetchWithAuth } from "@/app/api/fetchWithAuth";
 import BorderBox from "../components/board/border-box";
 import TagButton from "../components/board/tag-button";
+import BoardCard from "../components/board/board-card";
+import styles from "../styles/board/board-main.module.css";
+
+
 
 export default function Board() {
     const [tagactive, setTagactive] = useState<string>("전체");
     const [boards, setBoards] = useState<any[]>([]);
     const tagtext = ["전체", "고민", "질문"];
 
-    // 태그 매핑 객체 - 한국어 태그를 API용 영어 값으로 변환
-    const tagMapping: { [key: string]: string } = {
-        "전체": "",      // 또는 빈 문자열 ""이나 null 처리
+    const tagMapping: { [key: string]: string } = {    // 또는 빈 문자열 ""이나 null 처리
         "고민": "worry",
         "질문": "question"
     };
@@ -50,18 +52,27 @@ export default function Board() {
         <div style={{ background: "#F7F7F7", padding: "72px 0 74px 0" }}>
             <div style={{ margin: "auto", width: "1070px" }}>
                 <h2>Top3</h2>
-                <h2>게시판</h2>
-
-                <div>
-                    {tagtext.map((tag) => (
-                        <TagButton 
-                            key={tag}
-                            type={tag}
-                            onClick={() => fetchData(tag)}
-                            isActive={tag === tagactive}
-                        />
+                <div className={styles.board_card}>
+                    {boards.map((board, index) => (
+                        <BoardCard key={board.id} title={board.title} order={index + 1} />
                     ))}
                 </div>
+
+                <h2>게시판</h2>
+                    <div className={styles.tagbox}>
+                        {tagtext.map((tag) => (
+                            <TagButton 
+                                key={tag}
+                                type={tag}
+                                onClick={() => fetchData(tag)}
+                                isActive={tag === tagactive}
+                            />
+                        ))}
+
+                        <div className={styles.board_plus}>
+                            게시물 추가하기 +
+                        </div>
+                    </div>
 
                 {boards.map((item) => (
                     <BorderBox 
