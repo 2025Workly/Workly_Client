@@ -6,8 +6,10 @@ import "@/app/api/fetchWithAuth";
 import { fetchWithAuth } from "@/app/api/fetchWithAuth";
 import BorderBox from "../components/board/border-box";
 import TagButton from "../components/board/tag-button";
-import BoardCard from "../components/board/board-card";
+import BoardCardContainer from "../components/board/board-card";
 import styles from "../styles/board/board-main.module.css";
+import BoardWrite from "../components/board/board-write";
+import PostedCard from "../components/WordTip/posted-layout";
 
 
 
@@ -15,6 +17,8 @@ export default function Board() {
     const [tagactive, setTagactive] = useState<string>("전체");
     const [boards, setBoards] = useState<any[]>([]);
     const tagtext = ["전체", "고민", "질문"];
+    const [showWrite, setShowWrite] = useState(false);
+    const[showPosted, setShowPosted] = useState(false);
 
     const tagMapping: { [key: string]: string } = {    // 또는 빈 문자열 ""이나 null 처리
         "고민": "worry",
@@ -50,12 +54,10 @@ export default function Board() {
     
     return (
         <div style={{ background: "#F7F7F7", padding: "72px 0 74px 0" }}>
-            <div style={{ margin: "auto", width: "1070px" }}>
+            <div style={{ margin: "auto" }}>
                 <h2>Top3</h2>
-                <div className={styles.board_card}>
-                    {boards.map((board, index) => (
-                        <BoardCard key={board.id} title={board.title} order={index + 1} />
-                    ))}
+                <div>
+                       <BoardCardContainer />
                 </div>
 
                 <h2>게시판</h2>
@@ -69,9 +71,9 @@ export default function Board() {
                             />
                         ))}
 
-                        <div className={styles.board_plus}>
+                        <span className={styles.board_plus} onClick={() => setShowWrite(true)}>
                             게시물 추가하기 +
-                        </div>
+                        </span>
                     </div>
 
                 {boards.map((item) => (
@@ -83,7 +85,25 @@ export default function Board() {
                     />
                 ))}
 
+                
             </div>
+              <div>
+                    {showWrite && (
+                        <BoardWrite
+                        closeOnClick={() => setShowWrite(false)}
+                        onSuccessPost={() => {
+                            setShowWrite(false);
+                            setShowPosted(true);
+                            fetchData(tagactive);
+                            setTimeout(() => {
+                            setShowPosted(false);
+                            }, 2500);
+                        }}
+                        />
+                    )}
+                </div>
+
+                {showPosted && <PostedCard />}
         </div>
     )
 }
