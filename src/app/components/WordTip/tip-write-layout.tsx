@@ -102,7 +102,7 @@ export default function TipWrite({ mainPlaceholder, contentPlaceholder, closeOnC
                             ))}
                         </div>
                     </div>
-                    <Button title={buttonTitle} />
+                    <Button title={buttonTitle}/>
                 </form>
             </div>
         </div>
