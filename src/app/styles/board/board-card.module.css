@@ -16,6 +16,13 @@
 }
 
 
+.board_card {
+    display: flex;  
+    column-gap: 10px;
+    margin-top: 45px;
+    margin-bottom: 65px;
+}
+
 
 .popular {
     width: 350px;
