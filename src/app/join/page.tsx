@@ -2,18 +2,15 @@
 
 import { useState } from "react";
 import axios from "axios";
-import styles from "../styles/Login/login.module.css"
-import KaKaoGoogle from "../components/common/kakao-google";
+import styles from "../styles/Login/login.module.css";
 
 export default function JoinPage() {
-  const [form, setForm] = useState(
-    {
+  const [form, setForm] = useState({
     name: "",
     userId: "",
     pass: "",
     email: "",
-  }
-);
+  });
 
   const [message, setMessage] = useState("");
 
@@ -44,8 +41,7 @@ export default function JoinPage() {
       localStorage.setItem("userId", userId);
       localStorage.setItem("name", name);
       localStorage.setItem("email", email);
-      console.log("저장한 정보", userId, name, email)
-
+      console.log("저장한 정보", userId, name, email);
     } catch (error: any) {
       console.error("회원가입 오류:", error);
       setMessage(
@@ -58,7 +54,14 @@ export default function JoinPage() {
     <div className={styles.allContainer}>
       <h2 className={styles.h2}>회원가입</h2>
       <form onSubmit={handleSubmit}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "18px", margin: "60px 0 33px 0" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "18px",
+            margin: "60px 0 38px 0",
+          }}
+        >
           <div>
             <input
               name="name"
@@ -105,11 +108,13 @@ export default function JoinPage() {
 
         <div className={styles.checkboxContainer}>
           <input type="checkbox" className={styles.checkbox} />
-          <label htmlFor="" className={styles.agreement}>개인정보 이용에 동의 하십니까?</label>
+          <label htmlFor="" className={styles.agreement}>
+            개인정보 이용에 동의 하십니까?
+          </label>
         </div>
-        <button type="submit" className={styles.loginButton}>회원가입</button>
-
-        <KaKaoGoogle />
+        <button type="submit" className={styles.loginButton}>
+          회원가입
+        </button>
       </form>
       <p>{message}</p>
     </div>

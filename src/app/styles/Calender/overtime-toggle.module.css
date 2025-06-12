@@ -1,3 +1,8 @@
+ .toggle-container {
+     display: flex;
+     gap: 16px;
+ }
+
  .toggle-label {
      font-size: 14px;
      padding: 20px 0 20px 20px;
@@ -6,9 +11,8 @@
  .toggle-switch {
      position: relative;
      display: inline-block;
-     width: 51px;
-     height: 31px;
-     margin-right: 20px;
+     width: 41px;
+     height: 23px;
  }
 
  .toggle-switch input {
@@ -23,7 +27,7 @@
      left: 0;
      right: 0;
      bottom: 0;
-     background-color: #ccc;
+     background-color: #E9E9E9;
      border-radius: 20px;
      cursor: pointer;
      transition: 0.4s;
@@ -32,10 +36,10 @@
  .toggle-slider::before {
      content: "";
      position: absolute;
-     height: 22px;
-     width: 22px;
-     left: 4px;
-     bottom: 5px;
+     height: 15px;
+     width: 15px;
+     left: 3px;
+     bottom: 4px;
      background-color: white;
      border-radius: 50%;
      transition: 0.4s;
@@ -47,4 +51,10 @@
 
  .toggle-switch input:checked+.toggle-slider::before {
      transform: translateX(20px);
+ }
+
+ .overTimeText {
+     color: #797979;
+     font-size: 16px;
+     font-weight: 500;
  }

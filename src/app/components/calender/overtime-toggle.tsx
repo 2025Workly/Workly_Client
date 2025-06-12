@@ -10,6 +10,7 @@ type LanguageToggleProps = {
 export default function OvertimeToggle({ isActive, onToggle }: LanguageToggleProps) {
     return (
         <div className={styles["toggle-container"]}>
+            <p className={styles.overTimeText}>야근</p>
             <label className={styles["toggle-switch"]}>
                 <input
                     type="checkbox"

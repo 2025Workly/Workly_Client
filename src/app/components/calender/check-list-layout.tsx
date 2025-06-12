@@ -8,8 +8,16 @@ import { fetchWithAuth } from "@/app/api/fetchWithAuth"
 type AddCheckListProps = {
     onClick: () => void;
 }
-function AddCheckList({ onClick }: AddCheckListProps) {
 
+const unCheckImg = "/images/checkbox.png"
+const checkedImg = "/images/checkedbox.png"
+
+function AddCheckList({ onClick }: AddCheckListProps) {
+    const [activeToggle, setActiveToggle] = useState();
+    const handleToggle = (overtime: string) => {
+        const toggleState = overtime === 'overtime' ? "over" : "notOver"
+        setActiveToggle(toggleState)
+    }
     return (
         <div style={{ padding: "0 39px 0 49px" }}>
             <div className={styles.addAndToggleContainer}>
@@ -23,9 +31,9 @@ function AddCheckList({ onClick }: AddCheckListProps) {
                 </div>
 
                 <div className={styles.toggleContainer}>
-                    <p className={styles.overTimeText}>야근</p>
                     <OvertimeToggle
-                        isActive={true}
+                        isActive={activeToggle === 'over'}
+                        onToggle={() => handleToggle("overtime")}
                     />
                 </div>
             </div>
@@ -42,6 +50,8 @@ function WriteInput() {
         </div>
     )
 }
+
+
 export default function CheckList() {
     const [show, setShow] = useState(false)
     return (
