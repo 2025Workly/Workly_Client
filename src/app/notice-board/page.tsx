@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import axios from "axios";
 import "@/app/api/fetchWithAuth";
+import axios from "axios";
 import { fetchWithAuth } from "@/app/api/fetchWithAuth";
 import BorderBox from "../components/board/border-box";
 import TagButton from "../components/board/tag-button";
@@ -10,15 +10,24 @@ import BoardCardContainer from "../components/board/board-card";
 import styles from "../styles/board/board-main.module.css";
 import BoardWrite from "../components/board/board-write";
 import PostedCard from "../components/WordTip/posted-layout";
+import { useRouter } from 'next/navigation';
 
+type Board = {
+    title : string,
+    content : string,
+    tag : string
+}
 
 
 export default function Board() {
+    const router = useRouter();
     const [tagactive, setTagactive] = useState<string>("전체");
     const [boards, setBoards] = useState<any[]>([]);
     const tagtext = ["전체", "고민", "질문"];
     const [showWrite, setShowWrite] = useState(false);
     const[showPosted, setShowPosted] = useState(false);
+    const[showDetail, setshowDetail] = useState(false);
+    
 
     const tagMapping: { [key: string]: string } = {    // 또는 빈 문자열 ""이나 null 처리
         "고민": "worry",
@@ -51,6 +60,10 @@ export default function Board() {
     useEffect(() => {
         fetchData("전체");
     }, [])
+
+    const handleClick = (id: string) => {
+        router.push(`/notice-board/${id}`);
+    }
     
     return (
         <div style={{ background: "#F7F7F7", padding: "72px 0 74px 0" }}>
@@ -82,6 +95,7 @@ export default function Board() {
                         tag={item.tag}
                         title={item.title}
                         userId={item.userId}
+                        onClick={() =>  handleClick(item.id)}
                     />
                 ))}
 
