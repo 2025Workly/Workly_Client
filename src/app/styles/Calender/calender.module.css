@@ -73,3 +73,20 @@
 .button {
     cursor: pointer;
 }
+
+
+.hasCheckList {
+    color: white;
+    width: 37px;
+    height: 37px;
+    border-radius: 8px;
+    background: var(--main, #3B44E6) !important;
+}
+
+.selected {
+    color: white;
+    width: 37px;
+    height: 37px;
+    border-radius: 8px;
+    background: var(--main, #3B44E6) !important;
+}

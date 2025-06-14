@@ -7,6 +7,7 @@
     display: flex;
     gap: 7px;
     align-items: center;
+    cursor: pointer;
 }
 
 .CheckListAllContainer {
@@ -45,12 +46,17 @@
 .input {
     outline: none;
     border: none;
-    border-bottom: 1px solid #424242;
     width: 322px;
     color: #424242;
     font-size: 18px;
     font-weight: 500;
     line-height: 26px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #C5C3C3 !important;
+}
+
+.input::placeholder {
+    font-size: 18px;
 }
 
 .input[type="checkbox"] {
@@ -58,8 +64,35 @@
 }
 
 .writeContainer {
-    padding-left: 62px;
+    padding-left: 49px;
     display: flex;
     align-items: center;
     gap: 22px;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 32px;
+    overflow: scroll;
+}
+
+.inputContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.text {
+    width: 322px;
+    color: #424242;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.emptyMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    margin-top: 200px;
 }
