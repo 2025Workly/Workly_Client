@@ -74,20 +74,25 @@ const Calendar = ({
               week.map((day, di) => {
                 const isOtherMonth = !day.isSame(currentDate, "month");
                 const isSelected = selectedDate.isSame(day, "day");
+                console.log("확인:", checkDates, day.month() + 1, day.date());
+
                 const hasCheckList = checkDates.some(
-                  (d) => d.month === day.month() + 1 && d.day === day.date()
+                  (d) => day.month() + 1 === d.month && day.date() === d.day
                 );
+
+                let backgroundColor = "";
+                if (hasCheckList) backgroundColor = "#007bff";
+                if (isSelected) backgroundColor = "#ff7f50";
 
                 let className = `${styles.day}`;
                 if (isOtherMonth) className += ` ${styles.other}`;
-                if (hasCheckList) className += ` ${styles.hasCheckList}`;
-                if (isSelected) className += ` ${styles.selected}`;
 
                 return (
                   <div
                     key={`${wi}-${di}`}
                     onClick={() => setSelectedDate(day)}
                     className={className}
+                    style={{ backgroundColor: backgroundColor }}
                   >
                     {day.date()}
                   </div>

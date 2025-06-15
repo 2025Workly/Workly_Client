@@ -14,7 +14,7 @@ export default function CalenderMain() {
   const fetchCheckDates = async () => {
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch(`http://localhost:5000/check/all`, {
+      const res = await fetch("http://localhost:5000/check", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -27,6 +27,7 @@ export default function CalenderMain() {
       console.error("날짜 불러오기 실패:", error);
     }
   };
+  console.log("checkDates 전달값: ", checkDates);
 
   useEffect(() => {
     fetchCheckDates();
@@ -42,6 +43,7 @@ export default function CalenderMain() {
             setSelectedDate={setSelectedDate}
             checkDates={checkDates}
           />
+
           <CheckList
             selectedDate={selectedDate}
             refreshDates={fetchCheckDates}

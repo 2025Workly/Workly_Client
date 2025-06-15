@@ -5,9 +5,8 @@
 
 .AddCheckList {
     display: flex;
-    gap: 7px;
     align-items: center;
-    cursor: pointer;
+    gap: 183px;
 }
 
 .CheckListAllContainer {
@@ -34,6 +33,7 @@
     color: #000;
     font-size: 20px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .checkbox {
@@ -95,4 +95,29 @@
     align-items: center;
     color: gray;
     margin-top: 200px;
+}
+
+.overtimeText {
+    color: #797979;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.outLineToggle {
+    width: 41px;
+    height: 23px;
+    border-radius: 100px;
+    cursor: pointer;
+    position: relative;
+    margin-left: 16px;
+}
+
+.toggleCircle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #FFF;
+    position: absolute;
+    top: 4px;
+    transition: left 0.2s;
 }
