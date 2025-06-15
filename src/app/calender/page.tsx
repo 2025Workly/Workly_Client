@@ -1,37 +1,66 @@
 "use client";
 import styles from "../styles/Calender/calender-main.module.css";
 import Calendar from "../components/calender/calender-layout";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import dayjs from "dayjs";
 import CheckList from "../components/calender/check-list-layout";
+import { apiManager } from "../api/fetchWithAuth";
+import { getExtractedDayList } from "../../utils/util";
+
+type GetCheckDatesByMonthType = {
+  checkListDays: string[];
+};
+
+type GetOverTimeDateListType = {
+  overtimeDays: string[];
+};
 
 export default function CalenderMain() {
-  const [selectedDate, setSelectedDate] = useState(dayjs()); // 기본값 오늘 날짜로 설정
-  const [checkDates, setCheckDates] = useState<
-    { month: number; day: number }[]
-  >([]);
+  const [checkedDayList, setCheckedDayList] = useState<number[]>([]); // 체크리스트 값 있는 일자 리스트
+  const [currentMonth, setCurrentMonth] = useState<number>(dayjs().month() + 1); // 선택된 월
+  const [activeDay, setActiveDay] = useState<number>(dayjs().date()); // 선택된 일자
+  const [overTimeDayList, setOverTimeDayList] = useState<number[]>([]);
 
-  const fetchCheckDates = async () => {
-    const token = localStorage.getItem("token");
+  const currentYear = dayjs().year(); // 현재 년도
+  const isOverTimeToggled = useMemo(
+    () => overTimeDayList.some((item) => activeDay === item),
+    [overTimeDayList, activeDay]
+  );
+
+  const getOvertimeList = async () => {
     try {
-      const res = await fetch("http://localhost:5000/check", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const data = await res.json();
-      const list = data.checkList.map((item: any) => {
-        const createdAt = dayjs(item.createdAt);
-        return { month: createdAt.month() + 1, day: createdAt.date() };
-      });
-      setCheckDates(list);
+      const res: GetOverTimeDateListType = (
+        await apiManager.get(
+          `http://localhost:5000/overtime?year=${currentYear}&month=${currentMonth}`
+        )
+      ).data;
+      const overTimeDayList = getExtractedDayList(res.overtimeDays);
+      setOverTimeDayList(overTimeDayList);
     } catch (error) {
-      console.error("날짜 불러오기 실패:", error);
+      console.error("야근 정보 불러오기 실패:", error);
     }
   };
-  console.log("checkDates 전달값: ", checkDates);
 
+  const getCheckedDates = async (month: number) => {
+    try {
+      const res: GetCheckDatesByMonthType = (
+        await apiManager.get(
+          `http://localhost:5000/check/month?year=${currentYear}&month=${month}`
+        )
+      ).data;
+
+      setCheckedDayList(getExtractedDayList(res.checkListDays));
+    } catch (error) {
+      console.error("월별 체크리스트 불러오기 실패:", error);
+      setCheckedDayList([]);
+    }
+  };
+
+  // 선택한 월 값이 바뀔 때마다 월별 체크리스트 다시 불러오기
   useEffect(() => {
-    fetchCheckDates();
-  }, []);
+    getOvertimeList();
+    getCheckedDates(currentMonth);
+  }, [currentMonth]);
 
   return (
     <div className={styles.allContainer}>
@@ -39,14 +68,22 @@ export default function CalenderMain() {
         <h2 className={styles.h2}>야근 및 일정관리</h2>
         <div style={{ display: "flex", gap: "24px" }}>
           <Calendar
-            selectedDate={selectedDate}
-            setSelectedDate={setSelectedDate}
-            checkDates={checkDates}
+            currentMonth={currentMonth}
+            currentYear={currentYear}
+            activeDay={activeDay}
+            checkedDayList={checkedDayList}
+            overTimeDayList={overTimeDayList}
+            setCurrentMonth={setCurrentMonth}
+            setActiveDay={setActiveDay}
           />
 
           <CheckList
-            selectedDate={selectedDate}
-            refreshDates={fetchCheckDates}
+            year={currentYear}
+            day={activeDay}
+            month={currentMonth}
+            isOvertimeToggled={isOverTimeToggled}
+            refreshOverTimeDates={getOvertimeList}
+            refreshCheckDates={() => getCheckedDates(currentMonth)}
           />
         </div>
       </div>
