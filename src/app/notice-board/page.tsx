@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import axios from "axios";
 import "@/app/api/fetchWithAuth";
 import { fetchWithAuth } from "@/app/api/fetchWithAuth";
 import BorderBox from "../components/board/border-box";
@@ -10,22 +9,23 @@ import BoardCardContainer from "../components/board/board-card";
 import BoardWrite from "../components/board/board-write";
 import PostedCard from "../components/WordTip/posted-layout";
 import styles from "../styles/board/board-main.module.css";
-import { useRouter } from "next/navigation";
+import BoardModal from "../components/board/board_modal"; // 게시글 상세 모달 컴포넌트
 
 type Board = {
+  id: string;
   title: string;
   content: string;
   tag: string;
+  userId: string;
 };
 
 export default function Board() {
-  const router = useRouter();
   const [tagactive, setTagactive] = useState<string>("전체");
-  const [boards, setBoards] = useState<any[]>([]);
+  const [boards, setBoards] = useState<Board[]>([]);
   const tagtext = ["전체", "고민", "질문"];
   const [showWrite, setShowWrite] = useState(false);
   const [showPosted, setShowPosted] = useState(false);
-  const [showDetail, setshowDetail] = useState(false);
+  const [selectId, setSelectId] = useState<string | null>(null);
 
   const tagMapping: { [key: string]: string } = {
     고민: "worry",
@@ -35,13 +35,10 @@ export default function Board() {
   const fetchData = async (tag: string) => {
     setTagactive(tag);
     try {
-      let apiEndpoint;
-      if (tag === "전체") {
-        apiEndpoint = "http://localhost:5000/board";
-      } else {
-        const mappedTag = tagMapping[tag];
-        apiEndpoint = `http://localhost:5000/board/${mappedTag}`;
-      }
+      let apiEndpoint =
+        tag === "전체"
+          ? "http://localhost:5000/board"
+          : `http://localhost:5000/board/${tagMapping[tag]}`;
 
       const response = await fetchWithAuth(apiEndpoint);
       const data = await response.json();
@@ -56,8 +53,10 @@ export default function Board() {
   }, []);
 
   const handleClick = (id: string) => {
-    router.push(`/notice-board/${id}`);
+    setSelectId(id);
   };
+
+  const selectedPost = boards.find((item) => item.id === selectId);
 
   return (
     <div style={{ background: "#F7F7F7", padding: "72px 0 74px 0" }}>
@@ -77,7 +76,6 @@ export default function Board() {
               isActive={tag === tagactive}
             />
           ))}
-
           <span
             className={styles.board_plus}
             onClick={() => setShowWrite(true)}
@@ -97,23 +95,28 @@ export default function Board() {
         ))}
       </div>
 
-      <div>
-        {showWrite && (
-          <BoardWrite
-            closeOnClick={() => setShowWrite(false)}
-            onSuccessPost={() => {
-              setShowWrite(false);
-              setShowPosted(true);
-              fetchData(tagactive);
-              setTimeout(() => {
-                setShowPosted(false);
-              }, 2500);
-            }}
-          />
-        )}
-      </div>
+      {showWrite && (
+        <BoardWrite
+          closeOnClick={() => setShowWrite(false)}
+          onSuccessPost={() => {
+            setShowWrite(false);
+            setShowPosted(true);
+            fetchData(tagactive);
+            setTimeout(() => setShowPosted(false), 2500);
+          }}
+        />
+      )}
 
       {showPosted && <PostedCard />}
+
+      {selectedPost && (
+        <BoardModal
+          id={selectedPost.id}
+          tag={selectedPost.tag}
+          title={selectedPost.title}
+          content={selectedPost.content}
+        />
+      )}
     </div>
   );
 }
