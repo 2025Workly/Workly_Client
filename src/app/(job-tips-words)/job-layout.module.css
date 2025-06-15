@@ -29,7 +29,8 @@
     flex-wrap: wrap;
     gap: 16px;
     width: 1070px;
-    margin-bottom: 17px;
+    min-height: 603px;
+    margin-bottom: 40px;
 }
 
 .TipInfoCardContainer {
@@ -37,6 +38,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 1070px;
+    min-height: 600px;
 }
 
 .searchHeaderContainer,
