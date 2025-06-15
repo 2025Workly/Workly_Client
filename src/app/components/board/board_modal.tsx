@@ -3,7 +3,7 @@
 import React from 'react';
 import axios from 'axios';
 import CategoryBox from '@/app/components/board/category-box';
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import styles from "../../styles/board/board-modal.module.css";
 import CommentSection from './commentSection';
 
@@ -24,10 +24,13 @@ export default function BoardModal({id, title, tag, content} : Post) {
         content : ""
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function fetchPost() {
       try {
         const token = localStorage.getItem('token');
+         await axios.post(`http://localhost:5000/board/${id}/views`, null, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         const response = await axios.get(`http://localhost:5000/board/search?id=${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -36,7 +39,8 @@ export default function BoardModal({id, title, tag, content} : Post) {
         console.error("응답에러 : ", err);
       }
     }
-    fetchPost();
+      fetchPost();
+    
   }, [id]);
 
 
