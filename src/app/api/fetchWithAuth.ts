@@ -1,3 +1,24 @@
+import axios from "axios";
+
+// axios instance 만들기
+export const apiManager = axios.create({
+  baseURL: "http://localhost:5000",
+});
+
+apiManager.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      config.headers["Content-Type"] = "application/json";
+      config.headers["Authorization"] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
 export const fetchWithAuth = async (url: string, options: RequestInit = {}) => {
   const token = localStorage.getItem("token");
 
@@ -14,7 +35,7 @@ export const fetchWithAuth = async (url: string, options: RequestInit = {}) => {
     "Content-Type": "application/json",
   };
 
-  console.log("사용할 토큰:", token);  // 디버깅 용도
+  console.log("사용할 토큰:", token);
 
   try {
     const response = await fetch(url, {
