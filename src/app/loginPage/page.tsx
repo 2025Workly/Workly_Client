@@ -27,6 +27,8 @@ export default function Login() {
     if (response.ok) {
       // 로그인 성공 시 JWT 토큰 저장
       localStorage.setItem("token", data.token);
+      localStorage.setItem("name", data.name);
+      localStorage.setItem("email", data.email);
       console.log(data.token)
       alert("로그인 성공");
       router.push('/');
