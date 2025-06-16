@@ -3,9 +3,10 @@
 .savedPostAllContainer {
     padding-top: 59px;
     background-color: #F7F7F7;
-    height: 100vh;
+    height: 100%;
     position: relative;
     left: 425px;
+    width: 1070px;
 }
 
 .savedContainer {
