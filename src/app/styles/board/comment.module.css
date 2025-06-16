@@ -1,0 +1,32 @@
+.formDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formBox {
+    display: flex;
+    align-items: center;
+    width: 890px;
+    height: 72px;
+    box-shadow: 0px 4px 29px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.input {
+  all: unset;
+  margin-left: 25px;
+  font-size: 21px;
+    caret-color: #3B44E6;
+}
+
+.button {
+    width: 66px;
+    height: 40px;
+    background-color: #3B44E6;
+    color: white;
+    font-size: 17px;
+    border-radius: 8px;
+    border: 1px solid #3B44E6;
+    margin-left: 500px;
+}
