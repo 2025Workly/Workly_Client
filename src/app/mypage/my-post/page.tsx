@@ -17,7 +17,7 @@ export default function MyPostPage() {
   const [open, setOpen] = useState(false);
   const [board, setBoard] = useState<MyBoardProps[]>([]);
 
-  useEffect(() => {
+
     const fetchData = async () => {
       try {
         const token = localStorage.getItem("token");
@@ -32,8 +32,9 @@ export default function MyPostPage() {
       }
     };
 
-    fetchData();
-  }, []);
+    useEffect(() => {
+      fetchData();
+    }, []);
 
   const handleCategoryClick = (category: string) => {
     setActiveCategory(category);
@@ -58,10 +59,11 @@ export default function MyPostPage() {
           ) : (
             board.map((item) => (
               <MyBoard
-                key={item.id}
-                id={item.id}
-                title={item.title}
-                tag={item.tag}
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              tag={item.tag}
+              onDeleteSuccess={fetchData}
               />
             ))
           )}

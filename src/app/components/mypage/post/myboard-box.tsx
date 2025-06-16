@@ -8,9 +8,10 @@ type MyBoardProps = {
   id: string;
   title: string;
   tag: string;
+  onDeleteSuccess: () => void;
 };
 
-export default function MyBoard({ id, title, tag }: MyBoardProps) {
+export default function MyBoard({ id, title, tag, onDeleteSuccess }: MyBoardProps) {
   const [open, setOpen] = useState(false);
 
   // 삭제 함수 (id 매개변수 제거)
@@ -30,7 +31,7 @@ export default function MyBoard({ id, title, tag }: MyBoardProps) {
 
       alert("삭제가 완료되었습니다.");
       setOpen(false); // 팝업 닫기
-      // TODO: 삭제 후 부모에서 목록 갱신 필요
+      onDeleteSuccess();
     } catch (err) {
       console.error("응답 API 오류 : ", err);
       alert("삭제 중 오류가 발생했습니다.");
