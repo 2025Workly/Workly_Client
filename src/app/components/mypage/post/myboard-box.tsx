@@ -39,7 +39,7 @@ export default function MyBoard({ id, title, tag, onDeleteSuccess }: MyBoardProp
   };
 
   return (
-    <div>
+    <div style={{marginBottom: "10px"}}>
       <div className={styles.borderbox}>
         <CategoryBox tag={tag} />
         <div className={styles.title}>{title}</div>

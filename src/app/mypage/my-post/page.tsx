@@ -14,8 +14,36 @@ type MyBoardProps = {
 export default function MyPostPage() {
   const categories = ["전체", "고민", "질문"];
   const [activeCategory, setActiveCategory] = useState<string>("전체");
-  const [open, setOpen] = useState(false);
   const [board, setBoard] = useState<MyBoardProps[]>([]);
+      useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      let url = "http://localhost:5000/board/my";
+
+      if (activeCategory === "고민") {
+        url += "?tag=worry";
+      } else if (activeCategory === "질문") {
+        url += "?tag=question";
+      }
+
+      const response = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      setBoard(response.data.boards);
+    } catch (err) {
+      console.error("api 호출 오류", err);
+    }
+  };
+
+  fetchData();
+}, [activeCategory]); // activeCategory 바뀔 때마다 호출
+
+
 
 
     const fetchData = async () => {
@@ -55,7 +83,7 @@ export default function MyPostPage() {
         </div>
         <div style={{ paddingTop: "31px" }}>
           {board.length === 0 ? (
-            <p>게시판에 올린 게시물이 없어요!</p>
+            <p style={{display: "flex", justifyContent: "center", alignItems: "center", marginTop: "215px", fontSize: "20px", color: "#A0A0A0"}}>게시판에 올린 게시물이 없어요!</p>
           ) : (
             board.map((item) => (
               <MyBoard
