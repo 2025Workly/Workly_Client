@@ -1,7 +1,11 @@
+
+
 .savedPostAllContainer {
     padding-top: 59px;
-    background: #F7F7F7;
+    background-color: #F7F7F7;
     height: 100vh;
+    position: relative;
+    left: 425px;
 }
 
 .savedContainer {
