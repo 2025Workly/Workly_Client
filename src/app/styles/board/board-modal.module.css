@@ -1,17 +1,13 @@
 
 
 .board {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background: white;
   padding: 24px;
   border-radius: 12px;
   width: 1070px;
-  max-height: 90vh; /* 화면 높이의 90%까지만 허용 */
-  overflow-y: auto;  /* 넘치면 세로 스크롤 */
-  z-index: 1000;
+  height: 1611px;
+  margin-top: 139px;
+  overflow-y: auto;
 }
 
 .bacco {
@@ -48,13 +44,16 @@
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 10;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
 }
 
 .closeButton {

@@ -4,6 +4,7 @@
     margin-bottom: 25px;
     margin-top: 45px;
     align-items: center;
+    cursor: pointer;
 }
 
 .tag_button {
@@ -29,4 +30,5 @@
 .board_plus {
     font-size: 20px;
     margin-left: 614px;
+    cursor: pointer;
 }

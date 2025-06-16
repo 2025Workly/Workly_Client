@@ -1,0 +1,47 @@
+.commentContainer {
+  width: 890px;
+  height: 115px;
+  border-radius: 15px;
+  background: #F4F4F4;
+  padding: 25px 41px 28px 38px;
+}
+
+.bottomContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+.getComment {
+  color: #000;
+  font-family: Pretendard;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.createDate {
+  color: #ADADAD;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.userName {
+  color: #484848;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.commentAllContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 37px;
+  overflow: scroll;
+  height: 50vh;
+}
+
+.commentAllContainer::-webkit-scrollbar {
+  display: none;
+}
