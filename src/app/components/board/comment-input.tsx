@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
+import styles from "../../styles/board/comment.module.css";
 
 type CommentInputProps = {
   boardId: string;
@@ -28,14 +29,17 @@ export default function CommentInput({ boardId, onCommentPosted }: CommentInputP
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="댓글을 남겨보세요!"
-        value={commentText}
-        onChange={(e) => setCommentText(e.target.value)}
-      />
-      <button type="submit">입력</button>
-    </form>
+    <div className={styles.formDiv}>
+      <form onSubmit={handleSubmit} className={styles.formBox}>
+        <input
+          className={styles.input}
+          type="text"
+          placeholder="댓글을 남겨보세요!"
+          value={commentText}
+          onChange={(e) => setCommentText(e.target.value)}
+        />
+        <button type="submit" className={styles.button}>입력</button>
+      </form>
+    </div>
   );
 }
