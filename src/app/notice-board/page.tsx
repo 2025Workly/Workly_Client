@@ -22,10 +22,13 @@ type Board = {
 export default function Board() {
   const [tagactive, setTagactive] = useState<string>("전체");
   const [boards, setBoards] = useState<Board[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1); // 추가된 상태
   const tagtext = ["전체", "고민", "질문"];
   const [showWrite, setShowWrite] = useState(false);
   const [showPosted, setShowPosted] = useState(false);
   const [selectId, setSelectId] = useState<string | null>(null);
+
+  const ITEMS_PER_PAGE = 11; // 페이지당 게시물 수
 
   const tagMapping: { [key: string]: string } = {
     고민: "worry",
@@ -34,6 +37,7 @@ export default function Board() {
 
   const fetchData = async (tag: string) => {
     setTagactive(tag);
+    setCurrentPage(1); // 태그 변경 시 첫 페이지로 이동
     try {
       let apiEndpoint =
         tag === "전체"
@@ -57,6 +61,16 @@ export default function Board() {
   };
 
   const selectedPost = boards.find((item) => item.id === selectId);
+
+  // 페이지네이션 계산
+  const totalPages = Math.ceil(boards.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const currentBoards = boards.slice(startIndex, endIndex);
+
+  const handlePageClick = (page: number) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div style={{ background: "#F7F7F7", padding: "72px 0 74px 0" }}>
@@ -84,7 +98,8 @@ export default function Board() {
           </span>
         </div>
 
-        {boards.map((item) => (
+        {/* 현재 페이지의 게시물들만 표시 */}
+        {currentBoards.map((item) => (
           <BorderBox
             key={item.id}
             tag={item.tag}
@@ -93,6 +108,75 @@ export default function Board() {
             onClick={() => handleClick(item.id)}
           />
         ))}
+
+        {/* 페이지네이션 버튼들 */}
+        {totalPages > 1 && (
+          <div style={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            gap: '8px', 
+            marginTop: '32px' 
+          }}>
+            {/* 이전 버튼 */}
+            <div
+              onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
+              style={{
+                cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                opacity: currentPage === 1 ? 0.5 : 1,
+                marginRight: "26px"
+              }}
+            >
+              <img 
+                src="/images/Polygon 1.png" 
+                alt="이전" 
+                style={{
+                  width: "14px",
+                  height: "14px"
+                }}
+              />
+            </div>
+
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                onClick={() => handlePageClick(page)}
+                style={{
+                  width: "33px",
+                  height: "33px",
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: "23px",
+                  backgroundColor: page === currentPage ? '#3B44E6' : '',
+                  color: page === currentPage ? 'white' : '#000',
+                  fontWeight: page === currentPage ? 'bold' : 'normal'
+                }}
+              >
+                {page}
+              </button>
+            ))}
+
+            {/* 다음 버튼 */}
+            <div
+              onClick={() => currentPage < totalPages && setCurrentPage(currentPage + 1)}
+              style={{
+                cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+                opacity: currentPage === totalPages ? 0.5 : 1,
+                marginLeft: "26px"
+              }}
+            >
+              <img 
+                src="/images/Polygon 2.png" 
+                alt="다음"
+                style={{
+                  width: "14px",
+                  height: "14px",
+                }}
+              />
+            </div>
+          </div>
+        )}
       </div>
 
       {showWrite && (
@@ -112,9 +196,7 @@ export default function Board() {
       {selectedPost && (
         <BoardModal
           id={selectedPost.id}
-          tag={selectedPost.tag}
-          title={selectedPost.title}
-          content={selectedPost.content}
+          onClose={() => setSelectId(null)}
         />
       )}
     </div>

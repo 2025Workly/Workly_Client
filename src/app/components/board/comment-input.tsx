@@ -1,16 +1,12 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import axios from "axios";
-import styles from "../../styles/board/board-modal.module.css";
 
 type CommentInputProps = {
   boardId: string;
   onCommentPosted: () => void; // 댓글 작성 완료 콜백
 };
 
-export default function CommentInput({
-  boardId,
-  onCommentPosted,
-}: CommentInputProps) {
+export default function CommentInput({ boardId, onCommentPosted }: CommentInputProps) {
   const [commentText, setCommentText] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -32,19 +28,14 @@ export default function CommentInput({
   };
 
   return (
-    <div className={styles.InputCommentContainer}>
-      <form onSubmit={handleSubmit} style={{ display: "flex" }}>
-        <input
-          className={styles.commentInput}
-          type="text"
-          placeholder="댓글을 남겨보세요!"
-          value={commentText}
-          onChange={(e) => setCommentText(e.target.value)}
-        />
-        <button type="submit" className={styles.commentBtn}>
-          입력
-        </button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="댓글을 남겨보세요!"
+        value={commentText}
+        onChange={(e) => setCommentText(e.target.value)}
+      />
+      <button type="submit">입력</button>
+    </form>
   );
 }
