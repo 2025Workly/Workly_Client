@@ -1,5 +1,4 @@
 import styles from "../../styles/write-content-popup.module.css";
-import Button from "../common/button-layout";
 import Category from "../common/category-layout";
 import axios from "axios";
 import { useState } from "react";

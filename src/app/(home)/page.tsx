@@ -1,20 +1,17 @@
 // pages/index.js
 import Content from "../components/Home/content-layout";
 import Image from "next/image";
-import styles from "../styles/Home/home-page.module.css"
+import styles from "../styles/Home/home-page.module.css";
 import BannerSlicer from "../components/Home/banner-layout";
 
-import Icon1 from "../../../public/images/icon1.png";
-import Icon2 from "../../../public/images/icon2.png";
-import Icon3 from "../../../public/images/icon3.png";
-import Icon4 from "../../../public/images/icon4.png";
-
 export default function Home() {
-
   return (
     <div className={styles.allContainer}>
       <BannerSlicer isMain={true} />
-      <div className={`${styles.card} ${styles.card1}`} style={{ marginTop: "60px", alignItems: "center" }}>
+      <div
+        className={`${styles.card} ${styles.card1}`}
+        style={{ marginTop: "60px", alignItems: "center" }}
+      >
         <Content
           title="야근 및 일정관리"
           description={`업무를 편리하게 체크리스트로 관리\n
@@ -27,14 +24,19 @@ export default function Home() {
           style={{
             lineHeight: 0.8,
             color: "#DEDEDE",
-            marginTop: 24
+            marginTop: 24,
           }}
         />
-        <Image src={Icon1} alt="calender" className={styles.icon1} />
+        <Image
+          src={"/images/icon1.png"}
+          alt="calender"
+          width={623}
+          height={430}
+        />
       </div>
 
       <div className={`${styles.card} ${styles.card2}`}>
-        <Image src={Icon2} alt="job" className={styles.icon2} />
+        <Image src={"/images/icon1.png"} alt="job" width={430} height={442} />
         <Content
           title="직무용어와 팁"
           description={`자신에 직무의 용어와 팁에 대해서 알아\n보세요!`}
@@ -59,14 +61,19 @@ export default function Home() {
           btnBackground=""
           style={{
             lineHeight: 1.6,
-            color: "#424242"
+            color: "#424242",
           }}
         />
-        <Image src={Icon3} alt="board" className={styles.icon3} />
+        <Image src={"/images/icon3.png"} alt="board" width={570} height={302} />
       </div>
 
       <div className={`${styles.card} ${styles.card4}`}>
-        <Image src={Icon4} alt="mypage" className={styles.icon4} />
+        <Image
+          src={"/images/icon4.png"}
+          alt="mypage"
+          width={437}
+          height={574}
+        />
         <div>
           <Content
             title="실수령액 계산기"
@@ -78,13 +85,11 @@ export default function Home() {
             style={{
               lineHeight: 1.5,
               color: "#DEDEDE",
-              fontWeight: 600
+              fontWeight: 600,
             }}
           />
         </div>
       </div>
-
-
     </div>
   );
 }

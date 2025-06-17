@@ -1,5 +1,4 @@
 import styles from "../../styles/write-content-popup.module.css";
-import Button from "../common/button-layout";
 import Category from "../common/category-layout";
 import axios from "axios";
 import { useState } from "react";
@@ -118,7 +117,7 @@ export default function TipWrite({
               ))}
             </div>
           </div>
-          <button className={styles.tipWriteBtn}>팁 게시하기</button>
+          <button className={styles.tipwrite}>팁 게시하기</button>
         </form>
       </div>
     </div>

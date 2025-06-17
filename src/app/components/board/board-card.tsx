@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../../styles/board/board-card.module.css";
-
+import Image from "next/image";
 const rankStyles = [
   { bg: "#2A28B8", img: "/images/rank1.png" },
   { bg: "#4B49DD", img: "/images/rank2.png" },
@@ -53,7 +53,7 @@ export default function BoardCardContainer() {
             <div className={styles.rank_card_inner}>
               <div className={styles.rank_box}>
                 {style.img && (
-                  <img
+                  <Image
                     src={style.img}
                     alt={`${index + 1}위 이미지`}
                     width={121}

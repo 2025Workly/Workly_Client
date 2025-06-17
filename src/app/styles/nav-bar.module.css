@@ -12,11 +12,6 @@
     justify-content: center;
 }
 
-.logoImg {
-    width: 115px;
-    height: 40px;
-}
-
 .ul {
     display: flex;
     gap: 60px;

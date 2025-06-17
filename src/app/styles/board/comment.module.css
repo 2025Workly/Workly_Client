@@ -14,9 +14,10 @@
 }
 
 .input {
-  all: unset;
-  margin-left: 25px;
-  font-size: 21px;
+    all: unset;
+    width: 85%;
+    margin-left: 25px;
+    font-size: 21px;
     caret-color: #3B44E6;
 }
 
@@ -28,5 +29,6 @@
     font-size: 17px;
     border-radius: 8px;
     border: 1px solid #3B44E6;
-    margin-left: 500px;
+    margin-left: 30px;
+    cursor: pointer;
 }

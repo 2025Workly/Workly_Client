@@ -8,11 +8,6 @@
     background: #F7F7F7;
 }
 
-.LogoImg {
-    width: 115px;
-    height: 40px;
-}
-
 .mainFooter {
     display: flex;
     /* justify-content: space-between; */

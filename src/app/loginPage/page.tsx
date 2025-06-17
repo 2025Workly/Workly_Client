@@ -7,7 +7,6 @@ import styles from "../styles/Login/login.module.css";
 export default function Login() {
   const [userId, setUserId] = useState("");
   const [pass, setPass] = useState("");
-  const [error, setError] = useState("");
 
   const router = useRouter();
   const handleLogin = async (e: React.FormEvent) => {
@@ -34,7 +33,6 @@ export default function Login() {
       router.push("/");
     } else {
       // 로그인 실패 시 오류 메시지
-      setError(data.message);
       alert("로그인 실패");
     }
   };

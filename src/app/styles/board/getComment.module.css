@@ -1,6 +1,5 @@
 .commentContainer {
   width: 890px;
-  height: 115px;
   border-radius: 15px;
   background: #F4F4F4;
   padding: 25px 41px 28px 38px;
@@ -14,10 +13,9 @@
 
 .getComment {
   color: #000;
-  font-family: Pretendard;
   font-size: 21px;
-  font-style: normal;
   font-weight: 500;
+  width: 700px;
   line-height: normal;
 }
 
