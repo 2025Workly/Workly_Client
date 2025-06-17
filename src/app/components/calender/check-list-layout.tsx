@@ -50,7 +50,7 @@ export default function CheckList({
     try {
       const res: GetCheckListDateType = (
         await apiManager.get(
-          `http://localhost:5000/check?month=${currentMonth}&day=${activeDay}`
+          `http://43.201.95.2/check?month=${currentMonth}&day=${activeDay}`
         )
       ).data;
 
@@ -76,10 +76,10 @@ export default function CheckList({
 
       if (!isOvertimeToggled) {
         // 야근 추가
-        await apiManager.post("http://localhost:5000/overtime", requestBody);
+        await apiManager.post("http://43.201.95.2/overtime", requestBody);
       } else {
         // 야근 제거
-        await apiManager.delete("http://localhost:5000/overtime", {
+        await apiManager.delete("http://43.201.95.2/overtime", {
           data: requestBody,
         });
       }
@@ -110,7 +110,7 @@ export default function CheckList({
         checked: 0,
       };
 
-      await apiManager.post("http://localhost:5000/check", requestBody);
+      await apiManager.post("http://43.201.95.2/check", requestBody);
       resetInputValue();
       await fetchCheckList();
       await refreshCheckDates();
@@ -121,7 +121,7 @@ export default function CheckList({
 
   const handleDelete = async (checkId: number) => {
     try {
-      await apiManager.delete(`http://localhost:5000/check/${checkId}`);
+      await apiManager.delete(`http://43.201.95.2/check/${checkId}`);
       await fetchCheckList();
       await refreshCheckDates();
     } catch (error) {
@@ -134,7 +134,7 @@ export default function CheckList({
       const requestBody = { checked: checked ? 0 : 1 };
 
       await apiManager.patch(
-        `http://localhost:5000/check/${checkId}`,
+        `http://43.201.95.2/check/${checkId}`,
         requestBody
       );
       await fetchCheckList();

@@ -49,7 +49,7 @@ export default function BoardWrite({
     };
 
     try {
-      const response = await axios.post("http://localhost:5000/board", data, {
+      const response = await axios.post("http://43.201.95.2/board", data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

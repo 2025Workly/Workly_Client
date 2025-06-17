@@ -25,14 +25,11 @@ export default function Job() {
     setActiveCategory(category);
 
     try {
-      const response = await axios.get(
-        `http://localhost:5000/words/${category}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.get(`http://43.201.95.2/words/${category}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setWords(response.data.words);
     } catch (err) {
       console.error("api호출 오류 : ", err);
@@ -47,7 +44,7 @@ export default function Job() {
   const handleSearch = async (keyword: string) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/words/search?keyword=${keyword}`,
+        `http://43.201.95.2/words/search?keyword=${keyword}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

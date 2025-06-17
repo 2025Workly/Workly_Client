@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import styles from "../styles/Login/login.module.css"
+import styles from "../styles/Login/login.module.css";
 
 export default function Login() {
   const [userId, setUserId] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState("");
 
-  const router = useRouter()
+  const router = useRouter();
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // 로그인 API 호출
-    const response = await fetch("http://localhost:5000/user/login", {
+    const response = await fetch("http://43.201.95.2/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,10 +29,9 @@ export default function Login() {
       localStorage.setItem("token", data.token);
       localStorage.setItem("name", data.name);
       localStorage.setItem("email", data.email);
-      console.log(data.token)
+      console.log(data.token);
       alert("로그인 성공");
-      router.push('/');
-
+      router.push("/");
     } else {
       // 로그인 실패 시 오류 메시지
       setError(data.message);
@@ -44,7 +43,6 @@ export default function Login() {
     <div className={styles.allContainer}>
       <h2 className={styles.h2}>로그인</h2>
       <form onSubmit={handleLogin}>
-
         <div>
           <input
             className={`${styles.input} ${styles.firstInput}`}
@@ -67,11 +65,15 @@ export default function Login() {
         </div>
         <div className={styles.joinSuggestionContainer}>
           <p className={styles.joinSuggestion}>계정이 없으면?</p>
-          <p onClick={() => router.push('/join')} className={styles.loginMent}> 회원가입</p>
+          <p onClick={() => router.push("/join")} className={styles.loginMent}>
+            {" "}
+            회원가입
+          </p>
           <p className={styles.joinSuggestion}> 하러가기</p>
         </div>
-        <button type="submit" className={styles.loginButton}>로그인</button>
-
+        <button type="submit" className={styles.loginButton}>
+          로그인
+        </button>
       </form>
     </div>
   );

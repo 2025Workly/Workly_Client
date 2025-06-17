@@ -3,9 +3,9 @@ import axios from "axios";
 import styles from "../../styles/board/board-card.module.css";
 
 const rankStyles = [
-  { bg: '#2A28B8', img: '/images/rank1.png' },
-  { bg: '#4B49DD', img: '/images/rank2.png' },
-  { bg: '#5173E1', img: '/images/rank3.png' },
+  { bg: "#2A28B8", img: "/images/rank1.png" },
+  { bg: "#4B49DD", img: "/images/rank2.png" },
+  { bg: "#5173E1", img: "/images/rank3.png" },
 ];
 
 type PopularBoard = {
@@ -19,11 +19,11 @@ export default function BoardCardContainer() {
   useEffect(() => {
     const fetchPopularBoards = async () => {
       try {
-        const token = localStorage.getItem("token")
-        const response = await axios.get("http://localhost:5000/board/popular", {
-          headers : {
-            Authorization : `Bearer ${token}`
-          }
+        const token = localStorage.getItem("token");
+        const response = await axios.get("http://43.201.95.2/board/popular", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         });
         console.log("response.data:", response.data);
 

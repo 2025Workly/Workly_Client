@@ -26,15 +26,11 @@ export default function JoinPage() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/user/join",
-        form,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.post("http://43.201.95.2/user/join", form, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       const { userId, name, email } = response.data;
       setMessage("회원가입이 완료되었습니다. 로그인해주세요!");
       console.log("서버 응답:", response.data);

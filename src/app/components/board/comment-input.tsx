@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../../styles/board/comment.module.css";
 
@@ -7,7 +7,10 @@ type CommentInputProps = {
   onCommentPosted: () => void; // 댓글 작성 완료 콜백
 };
 
-export default function CommentInput({ boardId, onCommentPosted }: CommentInputProps) {
+export default function CommentInput({
+  boardId,
+  onCommentPosted,
+}: CommentInputProps) {
   const [commentText, setCommentText] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -17,7 +20,7 @@ export default function CommentInput({ boardId, onCommentPosted }: CommentInputP
     const token = localStorage.getItem("token");
     try {
       await axios.post(
-        `http://localhost:5000/comment/${boardId}`,
+        `http://43.201.95.2/comment/${boardId}`,
         { comment: commentText },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -38,7 +41,9 @@ export default function CommentInput({ boardId, onCommentPosted }: CommentInputP
           value={commentText}
           onChange={(e) => setCommentText(e.target.value)}
         />
-        <button type="submit" className={styles.button}>입력</button>
+        <button type="submit" className={styles.button}>
+          입력
+        </button>
       </form>
     </div>
   );

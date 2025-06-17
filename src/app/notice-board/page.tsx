@@ -41,8 +41,8 @@ export default function Board() {
     try {
       let apiEndpoint =
         tag === "전체"
-          ? "http://localhost:5000/board"
-          : `http://localhost:5000/board/${tagMapping[tag]}`;
+          ? "http://43.201.95.2/board"
+          : `http://43.201.95.2/board/${tagMapping[tag]}`;
 
       const response = await fetchWithAuth(apiEndpoint);
       const data = await response.json();
@@ -111,28 +111,30 @@ export default function Board() {
 
         {/* 페이지네이션 버튼들 */}
         {totalPages > 1 && (
-          <div style={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
-            alignItems: 'center', 
-            gap: '8px', 
-            marginTop: '32px' 
-          }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "8px",
+              marginTop: "32px",
+            }}
+          >
             {/* 이전 버튼 */}
             <div
               onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
               style={{
-                cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                cursor: currentPage === 1 ? "not-allowed" : "pointer",
                 opacity: currentPage === 1 ? 0.5 : 1,
-                marginRight: "26px"
+                marginRight: "26px",
               }}
             >
-              <img 
-                src="/images/Polygon 1.png" 
-                alt="이전" 
+              <img
+                src="/images/Polygon 1.png"
+                alt="이전"
                 style={{
                   width: "14px",
-                  height: "14px"
+                  height: "14px",
                 }}
               />
             </div>
@@ -144,13 +146,13 @@ export default function Board() {
                 style={{
                   width: "33px",
                   height: "33px",
-                  border: 'none',
-                  borderRadius: '6px',
-                  cursor: 'pointer',
+                  border: "none",
+                  borderRadius: "6px",
+                  cursor: "pointer",
                   fontSize: "23px",
-                  backgroundColor: page === currentPage ? '#3B44E6' : '',
-                  color: page === currentPage ? 'white' : '#000',
-                  fontWeight: page === currentPage ? 'bold' : 'normal'
+                  backgroundColor: page === currentPage ? "#3B44E6" : "",
+                  color: page === currentPage ? "white" : "#000",
+                  fontWeight: page === currentPage ? "bold" : "normal",
                 }}
               >
                 {page}
@@ -159,15 +161,17 @@ export default function Board() {
 
             {/* 다음 버튼 */}
             <div
-              onClick={() => currentPage < totalPages && setCurrentPage(currentPage + 1)}
+              onClick={() =>
+                currentPage < totalPages && setCurrentPage(currentPage + 1)
+              }
               style={{
-                cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+                cursor: currentPage === totalPages ? "not-allowed" : "pointer",
                 opacity: currentPage === totalPages ? 0.5 : 1,
-                marginLeft: "26px"
+                marginLeft: "26px",
               }}
             >
-              <img 
-                src="/images/Polygon 2.png" 
+              <img
+                src="/images/Polygon 2.png"
                 alt="다음"
                 style={{
                   width: "14px",
@@ -194,10 +198,7 @@ export default function Board() {
       {showPosted && <PostedCard />}
 
       {selectedPost && (
-        <BoardModal
-          id={selectedPost.id}
-          onClose={() => setSelectId(null)}
-        />
+        <BoardModal id={selectedPost.id} onClose={() => setSelectId(null)} />
       )}
     </div>
   );

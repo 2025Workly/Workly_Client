@@ -11,7 +11,12 @@ type MyBoardProps = {
   onDeleteSuccess: () => void;
 };
 
-export default function MyBoard({ id, title, tag, onDeleteSuccess }: MyBoardProps) {
+export default function MyBoard({
+  id,
+  title,
+  tag,
+  onDeleteSuccess,
+}: MyBoardProps) {
   const [open, setOpen] = useState(false);
 
   // 삭제 함수 (id 매개변수 제거)
@@ -23,13 +28,12 @@ export default function MyBoard({ id, title, tag, onDeleteSuccess }: MyBoardProp
         return;
       }
 
-      await axios.delete(`http://localhost:5000/board/${id}`, {
+      await axios.delete(`http://43.201.95.2/board/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
 
-      alert("삭제가 완료되었습니다.");
       setOpen(false); // 팝업 닫기
       onDeleteSuccess();
     } catch (err) {
@@ -39,7 +43,7 @@ export default function MyBoard({ id, title, tag, onDeleteSuccess }: MyBoardProp
   };
 
   return (
-    <div style={{marginBottom: "10px"}}>
+    <div style={{ marginBottom: "10px" }}>
       <div className={styles.borderbox}>
         <CategoryBox tag={tag} />
         <div className={styles.title}>{title}</div>

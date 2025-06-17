@@ -2,7 +2,7 @@ import axios from "axios";
 
 // axios instance 만들기
 export const apiManager = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "http://43.201.95.2",
 });
 
 apiManager.interceptors.request.use(

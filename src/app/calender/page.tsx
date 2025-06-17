@@ -31,7 +31,7 @@ export default function CalenderMain() {
     try {
       const res: GetOverTimeDateListType = (
         await apiManager.get(
-          `http://localhost:5000/overtime?year=${currentYear}&month=${currentMonth}`
+          `http://43.201.95.2/overtime?year=${currentYear}&month=${currentMonth}`
         )
       ).data;
       const overTimeDayList = getExtractedDayList(res.overtimeDays);
@@ -45,7 +45,7 @@ export default function CalenderMain() {
     try {
       const res: GetCheckDatesByMonthType = (
         await apiManager.get(
-          `http://localhost:5000/check/month?year=${currentYear}&month=${month}`
+          `http://43.201.95.2/check/month?year=${currentYear}&month=${month}`
         )
       ).data;
 
