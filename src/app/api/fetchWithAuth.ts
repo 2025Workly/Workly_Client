@@ -20,6 +20,12 @@ apiManager.interceptors.request.use(
 );
 
 export const fetchWithAuth = async (url: string, options: RequestInit = {}) => {
+  if (typeof window === "undefined") {
+    console.error(
+      "클라이언트 환경이 아닙니다. localStorage에 접근할 수 없습니다."
+    );
+    throw new Error("클라이언트에서만 호출 가능한 함수입니다.");
+  }
   const token = localStorage.getItem("token");
 
   console.log(token);
