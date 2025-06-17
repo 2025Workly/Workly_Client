@@ -1,22 +1,19 @@
-
-
 .savedPostAllContainer {
     padding-top: 59px;
     background-color: #F7F7F7;
-    height: 100%;
-    position: relative;
-    left: 425px;
     width: 1070px;
+    margin: auto;
 }
 
 .savedContainer {
     margin: auto;
-
+    height: 100vh;
 }
 
 .container {
     width: 1070px;
     margin: auto;
+    height: 100vh;
 }
 
 .saveText {
