@@ -18,6 +18,7 @@ export default function Job() {
   const [showPostedCheck, setShowPostedCheck] = useState(false);
 
   const categories = ["전체", "개발", "디자인"];
+
   const token = localStorage.getItem("token");
 
   //카테고리별로 카드 보여주는 api 연결
