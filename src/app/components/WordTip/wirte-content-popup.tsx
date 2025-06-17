@@ -120,7 +120,7 @@ export default function Write({
               ))}
             </div>
           </div>
-          <Button title={buttonTitle} />
+          <button className={styles.tipWriteBtn}>단어 게시하기</button>
         </form>
         {show && <PostedCard />}
       </div>

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import Button from "../common/button-layout";
 import styles from "../../styles/write-content-popup.module.css";
 
 type PopupProps = {
@@ -124,8 +123,7 @@ export default function BoardWrite({
               ))}
             </div>
           </div>
-
-          <Button title="게시판에 올리기" />
+          <button className={styles.tipWriteBtn}>게시판에 올리기</button>
         </form>
       </div>
     </div>

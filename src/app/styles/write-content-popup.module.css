@@ -86,3 +86,16 @@
     width: 23px;
     height: 23px;
 }
+
+.tipWriteBtn {
+    border: none;
+    width: 890px;
+    padding: 23px 10px;
+    gap: 10px;
+    border-radius: 15px;
+    background: var(--main, #3B44E6);
+    color: #FFF;
+    font-size: 25px;
+    font-weight: 500;
+    cursor: pointer;
+}
