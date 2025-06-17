@@ -16,7 +16,13 @@ export default function TipPage() {
   const [tips, setTips] = useState<any[]>([]); //단어 data 저장할 상태
   const [showPostedCheck, setShowPostedCheck] = useState(false);
   const categories = ["전체", "개발", "디자인"];
-  const token = localStorage.getItem("token");
+  const [token, setToken] = useState<string | null>(null);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedToken = localStorage.getItem("token");
+      setToken(storedToken);
+    }
+  }, []);
 
   const handleCategoryClick = async (category: string) => {
     setActiveCategory(category);
