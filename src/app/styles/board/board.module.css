@@ -6,14 +6,13 @@
     background-color: white;
     border-radius: 22px;
     margin-bottom: 18px;
-    padding: 0 20px;
+    padding: 0 35px;
     cursor: pointer;
 }
 
 .title {
     font-size: 24px;
     flex: 1;
-    margin: 0 20px;
     line-height: 1.4;
     display: flex;
     align-items: center;
@@ -29,5 +28,4 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 49px;
 }
