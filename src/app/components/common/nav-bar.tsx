@@ -9,7 +9,7 @@ export default function Nav() {
   return (
     <div className={styles.allContainer} style={{ background: "#F7F7F7" }}>
       <nav className={styles.navBar}>
-        <Link href={"/"}>
+        <Link href={"/home"}>
           <Image src={"/images/logo.png"} alt="logo" width={115} height={40} />
         </Link>
 

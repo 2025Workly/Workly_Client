@@ -20,7 +20,7 @@ export default function Footer({ isHome }: FooterProps) {
       }}
     >
       <div style={{ display: "flex", alignItems: "center" }}>
-        <Link href={"/"}>
+        <Link href={"/home"}>
           <Image
             onClick={MoveToTop}
             src={"/images/footerLogo.png"}
