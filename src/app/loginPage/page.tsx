@@ -22,7 +22,8 @@ export default function Login() {
     });
 
     const data = await response.json();
-
+    console.log("확인", userId);
+    console.log("확인", pass);
     if (response.ok) {
       // 로그인 성공 시 JWT 토큰 저장
       localStorage.setItem("token", data.token);

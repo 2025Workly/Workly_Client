@@ -3,6 +3,7 @@
 import { useState } from "react";
 import axios from "axios";
 import styles from "../styles/Login/login.module.css";
+import { useRouter } from "next/navigation";
 
 export default function JoinPage() {
   const [form, setForm] = useState({
@@ -11,7 +12,7 @@ export default function JoinPage() {
     pass: "",
     email: "",
   });
-
+  const router = useRouter();
   const [message, setMessage] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +25,7 @@ export default function JoinPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    console.log(form);
     try {
       const response = await axios.post("http://43.201.95.2/user/join", form, {
         headers: {
@@ -32,7 +33,11 @@ export default function JoinPage() {
         },
       });
       const { userId, name, email } = response.data;
+      console.log("form", form);
       setMessage("회원가입이 완료되었습니다. 로그인해주세요!");
+      alert("회원가입 성공!");
+      router.push("/loginPage");
+
       console.log("서버 응답:", response.data);
       localStorage.setItem("userId", userId);
       localStorage.setItem("name", name);
