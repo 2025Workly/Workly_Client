@@ -1,8 +1,7 @@
 "use client";
 import Category from "../components/common/category-layout";
 import SearchBar from "@/app/components/WordTip/search-bar-layout";
-import Button from "@/app/components/common/button-layout";
-import styles from "../(job-tips-words)/job-layout.module.css";
+import styles from "../job-tips-words/job-layout.module.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import TipWrite from "../components/WordTip/tip-write-layout";

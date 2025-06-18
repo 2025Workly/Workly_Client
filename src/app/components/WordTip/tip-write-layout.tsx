@@ -117,7 +117,7 @@ export default function TipWrite({
               ))}
             </div>
           </div>
-          <button className={styles.tipwrite}>팁 게시하기</button>
+          <button className={styles.tipWriteBtn}>팁 게시하기</button>
         </form>
       </div>
     </div>
